@@ -1,3 +1,4 @@
 .vscode/
-.txt
-.pdf
+*.txt
+*.pdf
+project-files/
