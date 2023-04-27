@@ -23,6 +23,16 @@ h1 {
   padding: 0.5em;
 }
 
+/* -------- CREATE, FILTER, SEARCH, SORT CONTAINER -------- */
+#data-interaction-container {
+  padding: 1em;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 1em;
+  column-gap: 1em;
+}
+
 /* -------- CSS GRID -------- */
 #grid-container {
   display: grid;

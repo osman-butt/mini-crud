@@ -14,7 +14,35 @@
   <body>
     <!--------- FEEDBACK GOES HERE --------->
     <header><h1>Mini CRUD</h1></header>
-    <!--------- SEARCH, SORT, FILTER --------->
+    <!--------- CREATE, SEARCH, SORT, FILTER --------->
+    <section id="data-interaction-container">
+      <!--------- CREATE --------->
+      <div id="btn-create-container">
+        <button id="btn-create">CREATE NEW FLASHCARD</button>
+      </div>
+      <!--------- SEARCH --------->
+      <div id="search-container">
+        <input type="search" id="input-search" placeholder="Search by title" />
+        <button id="btn-create">SEARCH</button>
+      </div>
+      <!--------- SORT & FILTER --------->
+      <div id="filter-sort-container">
+        <!-- <div id="filter-sort-inner-container"> -->
+        <!--------- SORT --------->
+        <label for="sort-data">SORT BY</label>
+        <select name="sort-data" id="sort-data">
+          <option value="Difficulty">Difficulty</option>
+          <option value="Title">Title</option>
+        </select>
+        <label for="filter-data">FILTER BY TOPIC</label>
+        <!--------- FILTER --------->
+        <select name="filter-data" id="filter-data">
+          <option value="HTML">HTML</option>
+          <option value="CSS">CSS</option>
+          <option value="JavaScript">JavaScript</option>
+        </select>
+      </div>
+    </section>
     <!--------- CSS GRID --------->
     <section id="grid-container">
       <!--------- CSS GRID ITEMS --------->
