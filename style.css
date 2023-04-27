@@ -69,3 +69,30 @@ h1 {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }
 }
+
+/* -------- BUTTONS -------- */
+button {
+  padding: 0.5em;
+  border-radius: 1em;
+  border: none;
+  color: white;
+  background-color: black;
+}
+
+button:hover {
+  cursor: pointer;
+  box-shadow: 0 8px 16px 0 black;
+}
+
+/* -------- FORMS ETC -------- */
+select {
+  border-radius: 1em;
+  border: none;
+  padding: 0.5em;
+}
+
+input[type="search"] {
+  border-radius: 1em;
+  border: none;
+  padding: 0.5em;
+}
