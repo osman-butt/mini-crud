@@ -1,6 +1,13 @@
+/* -------- Root variables -------- */
+:root {
+  --black-shadow: rgba(0, 0, 0, 0.25);
+}
+
+/* -------- General styling -------- */
 body {
   font-family: "Work Sans", sans-serif;
   margin: 0;
+  /* background-color: grey; */
   background-color: grey;
 }
 
@@ -16,6 +23,7 @@ h1 {
   padding: 0.5em;
 }
 
+/* -------- CSS GRID -------- */
 #grid-container {
   display: grid;
   grid-template-columns: 1fr;
@@ -37,4 +45,27 @@ h1 {
 
 .grid-item:hover {
   box-shadow: 0 8px 16px 0 black;
+}
+
+/* -------- RESPONSIVE -------- */
+@media (min-width: 600px) {
+  #grid-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 992px) {
+  #grid-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media (min-width: 1200px) {
+  #grid-container {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+@media (min-width: 1500px) {
+  #grid-container {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
 }
