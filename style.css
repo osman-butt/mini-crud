@@ -15,3 +15,26 @@ h1 {
   margin: 0;
   padding: 0.5em;
 }
+
+#grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1em;
+  padding: 1em;
+  margin: auto;
+  justify-self: center;
+}
+
+.grid-item {
+  box-shadow: 1px 1px 8px var(--black-shadow);
+  padding: 1.5em;
+  background-color: white;
+  transition: 0.5s;
+  border-radius: 2em;
+  text-align: center;
+  cursor: pointer;
+}
+
+.grid-item:hover {
+  box-shadow: 0 8px 16px 0 black;
+}
