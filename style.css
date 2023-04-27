@@ -74,6 +74,11 @@ h1 {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
+@media (min-width: 1250px) {
+  #data-interaction-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
 @media (min-width: 1500px) {
   #grid-container {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
