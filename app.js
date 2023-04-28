@@ -8,13 +8,40 @@ const query = "cards";
 
 async function initApp() {
   console.log("initApp: app.js is running 🎉");
-  const data = await getFlashCards();
-  console.log(data);
+  updateFlashCardsGrid();
+}
+
+async function updateFlashCardsGrid() {
+  const flashCards = await getFlashCards();
+  showFlashCards(flashCards);
 }
 
 async function getFlashCards() {
   console.log("---getFlashCards()---");
   const response = await fetch(`${endpoint}/${query}.json`);
-  const data = await response.json();
-  return data;
+  const listOfFlashCards = await response.json();
+  return listOfFlashCards;
+}
+
+function showFlashCards(listOfFlashCards) {
+  document.querySelector("#grid-container").innerHTML = ""; // reset the content of section#posts
+  listOfFlashCards.forEach(showFlashCard);
+}
+
+function showFlashCard(flashCard) {
+  const html = /*html*/ `
+  <article class="grid-item">
+            <img src="${flashCard.image}" />
+            <h3>${flashCard.question}</h3>
+            <p class="language">Language: ${flashCard.language}</p>
+            <p class="topic">Topic: ${flashCard.topic}</p>
+            <div class="btns">
+                <button class="btn-delete">Delete</button>
+                <button class="btn-update">Update</button>
+            </div>
+        </article>
+  `;
+  document
+    .querySelector("#grid-container")
+    .insertAdjacentHTML("beforeend", html); // append html to the DOM - section#posts
 }
