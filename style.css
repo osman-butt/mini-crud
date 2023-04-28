@@ -62,11 +62,17 @@ h1 {
   #grid-container {
     grid-template-columns: 1fr 1fr;
   }
+  dialog {
+    width: 50vw;
+  }
 }
 
 @media (min-width: 992px) {
   #grid-container {
     grid-template-columns: 1fr 1fr 1fr;
+  }
+  dialog {
+    width: 30vw;
   }
 }
 @media (min-width: 1200px) {
@@ -126,5 +132,4 @@ dialog {
   border: none;
   border-radius: 1em;
   padding: 1em;
-  width: 30vw;
 }
