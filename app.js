@@ -20,15 +20,20 @@ async function getFlashCards() {
   console.log("---getFlashCards()---");
   const response = await fetch(`${endpoint}/${query}.json`);
   const listOfFlashCards = await response.json();
+  if (response.ok) {
+    console.log("getFlashCards status " + response.status);
+  }
   return listOfFlashCards;
 }
 
 function showFlashCards(listOfFlashCards) {
+  console.log("---showFlashCards()---");
   document.querySelector("#grid-container").innerHTML = ""; // reset the content of section#posts
   listOfFlashCards.forEach(showFlashCard);
 }
 
 function showFlashCard(flashCard) {
+  console.log("---showFlashCard()---");
   const html = /*html*/ `
   <article class="grid-item">
             <img src="${flashCard.image}" />
@@ -43,5 +48,5 @@ function showFlashCard(flashCard) {
   `;
   document
     .querySelector("#grid-container")
-    .insertAdjacentHTML("beforeend", html); // append html to the DOM - section#posts
+    .insertAdjacentHTML("beforeend", html);
 }
