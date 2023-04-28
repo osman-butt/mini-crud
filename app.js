@@ -49,4 +49,28 @@ function showFlashCard(flashCard) {
   document
     .querySelector("#grid-container")
     .insertAdjacentHTML("beforeend", html);
+
+  document
+    .querySelector("#grid-container article:last-child img")
+    .addEventListener("click", () => showReadDialog(flashCard));
+}
+
+function showReadDialog(flashCard) {
+  console.log("---showReadDialog()---");
+  document.querySelector(".dialog-read-question span").textContent =
+    flashCard.question;
+  document.querySelector(".dialog-read-answer span").textContent =
+    flashCard.answer;
+  // document.querySelector("#dialog-read-img").src = flashCard.image;
+  document.querySelector(".dialog-read-language span").textContent =
+    flashCard.language;
+  document.querySelector(".dialog-read-topic span").textContent =
+    flashCard.topic;
+  document.querySelector(".dialog-read-difficulty span").textContent =
+    flashCard.difficulty;
+  document.querySelector("pre.dialog-read-example").textContent =
+    flashCard.code_example;
+  document.querySelector(".dialog-read-docs a").textContent = flashCard.link;
+  document.querySelector(".dialog-read-docs a").href = flashCard.link;
+  document.querySelector("#dialog-read").showModal();
 }
