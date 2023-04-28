@@ -6,7 +6,8 @@
       "image": "path/to/html_question_image.jpg",
       "link": "https://developer.mozilla.org/en-US/docs/Web/HTML",
       "difficulty": "easy",
-      "topic": ["HTML"],
+      "language": "HTML",
+      "topic": "General",
       "code_example": "<!DOCTYPE html>\n<html>\n<head>\n<title>HTML eksempel</title>\n</head>\n<body>\n<p>Dette er et eksempel på HTML-kode.</p>\n</body>\n</html>"
     },
     {
@@ -15,7 +16,8 @@
       "image": "path/to/css_question_image.jpg",
       "link": "https://developer.mozilla.org/en-US/docs/Web/CSS",
       "difficulty": "easy",
-      "topic": ["CSS"],
+      "language": "CSS",
+      "topic": "General",
       "code_example": "body {\n  font-family: Arial, sans-serif;\n  background-color: lightblue;\n}"
     },
     {
@@ -24,7 +26,8 @@
       "image": "path/to/eventlistener_question_image.jpg",
       "link": "https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener",
       "difficulty": "medium",
-      "topic": ["Javascript", "Eventlisteners"],
+      "language": "Javascript",
+      "topic": "Events",
       "code_example": "document.querySelector('button').addEventListener('click', function() {\n  alert('Klik registreret!');\n});"
     },
     {
@@ -33,7 +36,8 @@
       "image": "path/to/addClass_question_image.jpg",
       "link": "https://developer.mozilla.org/en-US/docs/Web/API/Element/classList",
       "difficulty": "medium",
-      "topic": ["Javascript", "Eventlisteners"],
+      "language": "Javascript",
+      "topic": "classList",
       "code_example": "document.querySelector('.myElement').classList.add('newClass');"
     },
     {
@@ -42,7 +46,8 @@
       "image": "path/to/function_question_image.jpg",
       "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions",
       "difficulty": "medium",
-      "topic": ["Javascript", "Functions"],
+      "language": "Javascript",
+      "topic": "Functions",
       "code_example": "function helloWorld() {\n  console.log('Hej, verden!');\n}\n\nhelloWorld();"
     },
     {
@@ -51,7 +56,8 @@
       "image": "path/to/createFunction_question_image.jpg",
       "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions",
       "difficulty": "medium",
-      "topic": ["Javascript", "Functions"],
+      "language": "Javascript",
+      "topic": "Functions",
       "code_example": "function sum(a, b) {\n  return a + b;\n}\n\nconsole.log(sum(2, 3));"
     },
     {
@@ -60,7 +66,8 @@
       "image": "path/to/fetchAPI_question_image.jpg",
       "link": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API",
       "difficulty": "medium",
-      "topic": ["Javascript", "Fetch", "API"],
+      "language": "Javascript",
+      "topic": "Fetch",
       "code_example": "fetch('https://api.example.com/data')\n  .then(response => response.json())\n  .then(data => console.log(data))\n  .catch(error => console.error('Error:', error));"
     },
     {
@@ -69,7 +76,8 @@
       "image": "path/to/responsive_nav_question_image.jpg",
       "link": "https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
       "difficulty": "hard",
-      "topic": ["CSS"],
+      "language": "CSS",
+      "topic": "Flexbox",
       "code_example": "nav {\n  display: flex;\n  justify-content: space-between;\n}\n\nnav a {\n  flex: 1;\n  text-align: center;\n}"
     },
     {
@@ -78,7 +86,8 @@
       "image": "path/to/css_grid_question_image.jpg",
       "link": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout",
       "difficulty": "hard",
-      "topic": ["CSS"],
+      "language": "CSS",
+      "topic": "Grid",
       "code_example": ".grid-container {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  grid-template-rows: auto;\n  grid-gap: 10px;\n}"
     },
     {
@@ -87,7 +96,8 @@
       "image": "path/to/custom_event_question_image.jpg",
       "link": "https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent",
       "difficulty": "hard",
-      "topic": ["Javascript", "Eventlisteners"],
+      "language": "Javascript",
+      "topic": "Events",
       "code_example": "const myEvent = new CustomEvent('myCustomEvent', { detail: { message: 'Custom event udløst' } });\ndocument.querySelector('#myElement').addEventListener('myCustomEvent', function (e) {\n  console.log(e.detail.message);\n});\ndocument.querySelector('#myElement').dispatchEvent(myEvent);"
     },
     {
@@ -96,7 +106,8 @@
       "image": "path/to/event_delegation_question_image.jpg",
       "link": "https://javascript.info/event-delegation",
       "difficulty": "hard",
-      "topic": ["Javascript", "Eventlisteners"],
+      "language": "Javascript",
+      "topic": "Events",
       "code_example": "document.querySelector('#parentElement').addEventListener('click', function (event) {\n  if (event.target.matches('.childElement')) {\n    console.log('Et barn-element blev klikket på.');\n  }\n});"
     },
     {
@@ -105,7 +116,8 @@
       "image": "path/to/async_await_question_image.jpg",
       "link": "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await",
       "difficulty": "hard",
-      "topic": ["Javascript", "Async"],
+      "language": "Javascript",
+      "topic": "Async-await",
       "code_example": "async function fetchData(url) {\n  try {\n    const response = await fetch(url);\n    const data = await response.json();\n    console.log(data);\n  } catch (error) {\n    console.error('Error:', error);\n  }\n}\n\nfetchData('https://api.example.com/data');"
     },
     {
@@ -114,7 +126,8 @@
       "image": "path/to/promise_question_image.jpg",
       "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
       "difficulty": "hard",
-      "topic": ["Javascript", "Promises"],
+      "language": "Javascript",
+      "topic": "Promise",
       "code_example": "const myPromise = new Promise((resolve, reject) => {\n  setTimeout(() => {\n    resolve('Success!');\n  }, 2000);\n});\n\nmyPromise\n  .then(result => console.log(result))\n  .catch(error => console.error(error));"
     },
     {
@@ -123,7 +136,8 @@
       "image": "path/to/websockets_question_image.jpg",
       "link": "https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API",
       "difficulty": "hard",
-      "topic": ["Javascript", "Websockets"],
+      "language": "Javascript",
+      "topic": "Websockets",
       "code_example": "const socket = new WebSocket('ws://example.com/socket');\n\nsocket.addEventListener('open', (event) => {\n  socket.send('Hello, Server!');\n});\n\nsocket.addEventListener('message', (event) => {\n  console.log('Message from server:', event.data);\n});"
     },
     {
@@ -132,7 +146,8 @@
       "image": "path/to/center_element_question_image.jpg",
       "link": "https://css-tricks.com/centering-css-complete-guide/",
       "difficulty": "medium",
-      "topic": ["CSS"],
+      "language": "CSS",
+      "topic": "General",
       "code_example": ".container {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.centered-element {\n  width: 100px;\n  height: 100px;\n}"
     },
     {
@@ -141,7 +156,8 @@
       "image": "path/to/remove_event_listener_question_image.jpg",
       "link": "https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener",
       "difficulty": "medium",
-      "topic": ["Javascript", "Eventlisteners"],
+      "language": "Javascript",
+      "topic": "Events",
       "code_example": "function handleClick() {\n  console.log('Element clicked!');\n}\n\nconst element = document.querySelector('#myElement');\nelement.addEventListener('click', handleClick);\nelement.removeEventListener('click', handleClick);"
     },
     {
@@ -150,7 +166,8 @@
       "image": "path/to/anonymous_named_functions_question_image.jpg",
       "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions",
       "difficulty": "medium",
-      "topic": ["Javascript", "Functions"],
+      "language": "Javascript",
+      "topic": "Functions",
       "code_example": "const anonymousFunction = function() {\n  console.log('Dette er en anonym funktion.');\n};\n\nfunction namedFunction() {\n  console.log('Dette er en navngivet funktion.');\n}"
     },
     {
@@ -159,7 +176,8 @@
       "image": "path/to/localstorage_question_image.jpg",
       "link": "https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage",
       "difficulty": "medium",
-      "topic": ["Javascript", "localStorage", "JSON"],
+      "language": "Javascript",
+      "topic": "localStorage",
       "code_example": "const myData = { name: 'John', age: 25 };\nlocalStorage.setItem('userData', JSON.stringify(myData));"
     },
     {
@@ -168,7 +186,8 @@
       "image": "path/to/responsive_navbar_question_image.jpg",
       "link": "https://www.w3schools.com/howto/howto_js_topnav_responsive.asp",
       "difficulty": "medium",
-      "topic": ["CSS"],
+      "language": "CSS",
+      "topic": "General",
       "code_example": "@media (max-width: 768px) {\n  .navbar {\n    display: flex;\n    flex-direction: column;\n  }\n}\n\n@media (min-width: 769px) {\n  .navbar {\n    display: flex;\n    flex-direction: row;\n  }\n}"
     },
     {
@@ -177,7 +196,8 @@
       "image": "path/to/target_currentTarget_question_image.jpg",
       "link": "https://developer.mozilla.org/en-US/docs/Web/API/Event/currentTarget",
       "difficulty": "medium",
-      "topic": ["Javascript", "Events"],
+      "language": "Javascript",
+      "topic": "Events",
       "code_example": "document.querySelector('#parent').addEventListener('click', function(event) {\n  console.log('Target:', event.target);\n  console.log('CurrentTarget:', event.currentTarget);\n});"
     },
     {
@@ -186,7 +206,8 @@
       "image": "path/to/iife_question_image.jpg",
       "link": "https://developer.mozilla.org/en-US/docs/Glossary/IIFE",
       "difficulty": "medium",
-      "topic": ["Javascript", "Functions"],
+      "language": "Javascript",
+      "topic": "Functions",
       "code_example": "(function() {\n  const localVar = 'I am in an IIFE';\n  console.log(localVar);\n})();"
     },
     {
@@ -195,7 +216,8 @@
       "image": "path/to/fetch_api_question_image.jpg",
       "link": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch",
       "difficulty": "medium",
-      "topic": ["Javascript", "Fetch", "API"],
+      "language": "Javascript",
+      "topic": "Fetch",
       "code_example": "fetch('https://api.example.com/data')\n  .then(response => response.json())\n  .then(data => console.log(data))\n  .catch(error => console.error('Error:', error));"
     },
     {
@@ -204,7 +226,8 @@
       "image": "path/to/background_color_question_image.jpg",
       "link": "https://developer.mozilla.org/en-US/docs/Web/CSS/background-color",
       "difficulty": "easy",
-      "topic": ["CSS"],
+      "language": "CSS",
+      "topic": "General",
       "code_example": ".myElement {\n  background-color: blue;\n}"
     },
     {
@@ -213,7 +236,8 @@
       "image": "path/to/click_event_listener_question_image.jpg",
       "link": "https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener",
       "difficulty": "easy",
-      "topic": ["Javascript", "Eventlisteners"],
+      "language": "Javascript",
+      "topic": "Events",
       "code_example": "document.querySelector('#myElement').addEventListener('click', function() {\n  console.log('Element clicked!');\n});"
     },
     {
@@ -222,7 +246,8 @@
       "image": "path/to/simple_function_question_image.jpg",
       "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions",
       "difficulty": "easy",
-      "topic": ["Javascript", "Functions"],
+      "language": "Javascript",
+      "topic": "Functions",
       "code_example": "function greet(name) {\n  console.log('Hello, ' + name + '!');\n}"
     },
     {
@@ -231,7 +256,8 @@
       "image": "path/to/fetch_json_file_question_image.jpg",
       "link": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch",
       "difficulty": "easy",
-      "topic": ["Javascript", "JSON", "Fetch"],
+      "language": "Javascript",
+      "topic": "Fetch",
       "code_example": "fetch('https://api.example.com/data.json')\n  .then(response => response.json())\n  .then(data => console.log(data))\n  .catch(error => console.error('Error:', error));"
     }
   ]
