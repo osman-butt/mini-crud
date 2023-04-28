@@ -120,3 +120,11 @@ input[type="search"] {
   margin-right: auto;
   display: block;
 }
+
+/* -------- DIALOG -------- */
+dialog {
+  border: none;
+  border-radius: 1em;
+  padding: 1em;
+  width: 30vw;
+}
