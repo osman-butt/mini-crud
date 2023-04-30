@@ -80,7 +80,7 @@ document
   .getElementById("btn-create")
   .addEventListener("click", openCreateDialog);
 document
-  .getElementById("btn-cancel")
+  .getElementById("create-flashcard-btn-cancel")
   .addEventListener("click", closeCreateDialog);
 document.getElementById("create-form").addEventListener("submit", handleSave);
 
