@@ -94,6 +94,6 @@ function closeCreateDialog() {
 
 function handleSave(event) {
   event.preventDefault();
-  // Process the form data here, e.g., save the new flashcard
+
   closeCreateDialog();
 }
