@@ -74,3 +74,26 @@ function showReadDialog(flashCard) {
   document.querySelector(".dialog-read-docs a").href = flashCard.link;
   document.querySelector("#dialog-read").showModal();
 }
+
+//Eventlistener for create button
+document
+  .getElementById("btn-create")
+  .addEventListener("click", openCreateDialog);
+document
+  .getElementById("btn-cancel")
+  .addEventListener("click", closeCreateDialog);
+document.getElementById("create-form").addEventListener("submit", handleSave);
+
+function openCreateDialog() {
+  document.getElementById("dialog-create").showModal();
+}
+
+function closeCreateDialog() {
+  document.getElementById("dialog-create").close();
+}
+
+function handleSave(event) {
+  event.preventDefault();
+  // Process the form data here, e.g., save the new flashcard
+  closeCreateDialog();
+}

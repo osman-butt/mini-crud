@@ -20,6 +20,7 @@
       <div id="btn-create-container">
         <button id="btn-create">CREATE NEW FLASHCARD</button>
       </div>
+
       <!--------- SEARCH --------->
       <div id="search-container">
         <input type="search" id="input-search" placeholder="Search by title" />
@@ -73,6 +74,30 @@
       </form>
     </dialog>
     <!--------- DIALOG CREATE --------->
+    <dialog id ="dialog-create">
+      <h2>Create New Flashcard</h2>
+      <form id="create-form">
+        <label for = "input-question">Question:</label> 
+        <input type="text" id="input-question" required />
+
+        <label for = "input-answer">Answer:</label>
+        <input type ="text" id="input-answer" required/>
+
+        <label for="input-subject">Subject:</label>
+        <input type="text" id="input-subject" required/>
+
+        <label for="input-difficulty">Difficulty</label>
+        <input type="text" id="input-difficulty" required/>"
+
+        <label for="input-code-snippet">Code Snippet:</label>
+        <input type="text" id="input-code-snippet" required />
+
+        <div>
+          <button type="button" id="create-flashcard-btn-cancel">Cancel</button>
+          <button type="submit" id="create-flashcard-btn-save">Save</button>
+        </div>
+      </form>
+    </dialog>
     <!--------- DIALOG UPDATE --------->
     <!--------- DIALOG DELETE --------->
     <script src="app.js"></script>
