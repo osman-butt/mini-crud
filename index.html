@@ -42,13 +42,12 @@
           <option value="TopicAz">Topic A-Z</option>
           <option value="TopicZa">Topic Z-A</option>
         </select>
-        <label for="filter-data">Filter by topic: </label>
         <!--------- FILTER --------->
-        <select name="filter-data" id="filter-data">
-          <option value="HTML">HTML</option>
-          <option value="CSS">CSS</option>
-          <option value="JavaScript">JavaScript</option>
-        </select>
+        <div id="filter-container">
+          <label for="filter-input">Filter by keyword:</label>
+          <input type="text" id="filter-input" placeholder="Enter keyword" />
+          <button id="filter-btn">Filter</button>
+        </div>
       </div>
     </section>
     <!--------- CSS GRID --------->

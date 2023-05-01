@@ -18,6 +18,9 @@ async function initApp() {
   document
     .querySelector("#sort-data")
     .addEventListener("change", sortFlashcards);
+  document
+    .querySelector("#filter-btn")
+    .addEventListener("click", filterFlashcards);
 }
 
 async function updateFlashCardsGrid() {
@@ -209,4 +212,18 @@ function rankDifficulty(flashCard) {
   } else if (flashCard.difficulty === "hard") {
     return 3;
   }
+}
+
+async function filterFlashcards() {
+  console.log("---filterFlashcards---");
+  const filterKeyword = document.querySelector("#filter-input").value.toLowerCase();
+  const flashCards = await getFlashCards();
+  const filteredFlashCards = flashCards.filter(flashCard =>
+    flashCard.question.toLowerCase().includes(filterKeyword) ||
+    flashCard.answer.toLowerCase().includes(filterKeyword) ||
+    flashCard.language.toLowerCase().includes(filterKeyword) ||
+    flashCard.topic.toLowerCase().includes(filterKeyword) ||
+    flashCard.difficulty.toLowerCase().includes(filterKeyword)
+  );
+  showFlashCards(filteredFlashCards);
 }
