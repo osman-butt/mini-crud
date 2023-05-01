@@ -105,6 +105,25 @@ button:hover {
   box-shadow: 0 8px 16px 0 black;
 }
 
+.btn-cancel {
+  padding: 0.5em;
+  border-radius: 1em;
+  border: none;
+  color: black;
+  background-color: rgb(218, 217, 217);
+  width: 5em;
+  justify-self: center;
+}
+.btn-submit {
+  padding: 0.5em;
+  border-radius: 1em;
+  border: none;
+  color: white;
+  background-color: black;
+  width: 5em;
+  justify-self: center;
+}
+
 /* -------- FORMS ETC -------- */
 select {
   border-radius: 1em;
@@ -132,4 +151,9 @@ dialog {
   border: none;
   border-radius: 1em;
   padding: 1em;
+}
+
+#form-delete {
+  display: grid;
+  grid-template-columns: auto auto;
 }
