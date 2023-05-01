@@ -18,6 +18,9 @@ async function initApp() {
   document
     .querySelector("#sort-data")
     .addEventListener("change", sortFlashcards);
+  document
+    .querySelector("#filter-btn")
+    .addEventListener("click", filterFlashcards);
 }
 
 async function updateFlashCardsGrid() {
