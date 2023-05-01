@@ -13,6 +13,8 @@ body {
 
 header {
   background-color: black;
+  /* position: sticky; */
+  top: 0;
 }
 
 h1 {
@@ -21,6 +23,36 @@ h1 {
   color: white;
   margin: 0;
   padding: 0.5em;
+}
+
+.hidden {
+  display: none;
+}
+
+/* -------- FEEDBACK -------- */
+#feedback-container {
+  position: sticky;
+  top: 0;
+}
+
+#feedback {
+  text-align: center;
+  padding: 1em;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+  animation: fade-out 3s forwards linear;
+  overflow: visible;
+}
+
+@keyframes fade-out {
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 /* -------- CREATE, FILTER, SEARCH, SORT CONTAINER -------- */
