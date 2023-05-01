@@ -9,6 +9,12 @@ const query = "cards";
 async function initApp() {
   console.log("initApp: app.js is running 🎉");
   updateFlashCardsGrid();
+  document
+    .querySelector("#form-delete")
+    .addEventListener("submit", deleteFlashcardClicked);
+  document
+    .querySelector("#form-delete .btn-cancel")
+    .addEventListener("click", closeDeleteDialog);
 }
 
 async function updateFlashCardsGrid() {
@@ -65,6 +71,10 @@ function showFlashCard(flashCard) {
   document
     .querySelector("#grid-container article:last-child img")
     .addEventListener("click", () => showReadDialog(flashCard));
+
+  document
+    .querySelector("#grid-container article:last-child .btn-delete")
+    .addEventListener("click", () => showDeleteDialog(flashCard));
 }
 
 function showReadDialog(flashCard) {
@@ -85,4 +95,24 @@ function showReadDialog(flashCard) {
   document.querySelector(".dialog-read-docs a").textContent = flashCard.link;
   document.querySelector(".dialog-read-docs a").href = flashCard.link;
   document.querySelector("#dialog-read").showModal();
+}
+
+function showDeleteDialog(flashCard) {
+  console.log("---flashCard()---");
+  document.querySelector(".dialog-delete-question span").textContent =
+    flashCard.question;
+  document.querySelector("#form-delete").setAttribute("data-id", flashCard.id);
+  document.querySelector("#dialog-delete").showModal();
+}
+
+function deleteFlashcardClicked(event) {
+  console.log("DELETED: " + event);
+}
+
+async function deleteFlashcard(id) {
+  console.log("---deleteFlashcard()---");
+}
+
+function closeDeleteDialog() {
+  console.log("closeDeleteDialog");
 }
