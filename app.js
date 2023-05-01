@@ -214,3 +214,13 @@ function rankDifficulty(flashCard) {
     return 3;
   }
 }
+
+async function searchFlashcards() {
+  console.log("---searchFlashcards---");
+  const searchKeyword = document.querySelector("#input-search").value.toLowerCase();
+  const flashCards = await getFlashCards();
+  const searchedFlashCards = flashCards.filter(flashCard =>
+    flashCard.question.toLowerCase().includes(searchKeyword)
+  );
+  showFlashCards(searchedFlashCards);
+}
