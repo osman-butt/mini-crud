@@ -75,7 +75,7 @@ function showReadDialog(flashCard) {
   document.querySelector("#dialog-read").showModal();
 }
 
-//Eventlistener for create button
+//Eventlistener for create button and dialog box
 document
   .getElementById("btn-create")
   .addEventListener("click", openCreateDialog);
@@ -92,8 +92,31 @@ function closeCreateDialog() {
   document.getElementById("dialog-create").close();
 }
 
-function handleSave(event) {
+async function handleSave(event) {
   event.preventDefault();
 
+  const newFlashCard = {
+    question: document.getElementById("input-question").value,
+    answer: document.getElementById("input-answer").value,
+    subject: document.getElementById("input-subject").value,
+    difficulty: document.getElementById("input-difficulty".value),
+    code_example: document.getElementById("input-code-snippet").value,
+  };
+
+  await createFlashcard(newFlashCard);
+  updateFlashCardsGrid();
+
   closeCreateDialog();
+}
+
+async function createFlashcard(flashcard) {
+  const response = await fetch(`${endpoint}/${query}.json`, {
+    method: "POST",
+    body: JSON.stringify(flashCard),
+  });
+  if (response.ok) {
+    console.log("Flashcard created succesfully");
+  } else {
+    console.error("Error creating flashcard", response.status);
+  }
 }
