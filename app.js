@@ -117,6 +117,7 @@ async function deleteFlashcard(id) {
   const res = await fetch(url, { method: "DELETE" });
   if (res.ok) {
     console.log("id=" + id + ", was deleted succesfully");
+    showFeedbackMsg("delete");
   }
   console.log(res);
   updateFlashCardsGrid();
@@ -126,4 +127,32 @@ function closeDeleteDialog() {
   console.log("closeDeleteDialog");
   document.querySelector("#form-delete").removeAttribute("data-id");
   document.querySelector("#dialog-delete").close();
+}
+
+function showFeedbackMsg(httpMethod) {
+  console.log("---showFeedbackMsg()---");
+  let msg;
+  let color;
+  if (httpMethod == "delete") {
+    msg = "The flashcard was succesfully deleted!";
+    color = "rgb(255, 68, 68)";
+  } else if (httpMethod == "post") {
+    msg = "The flashcard was succesfully created!";
+    color = "rgb(117, 214, 117)";
+  } else if (httpMethod == "put") {
+    msg = "The flashcard was succesfully updated!";
+    color = "rgb(117, 214, 117)";
+  }
+  const prompt = document.querySelector("#feedback");
+  prompt.textContent = msg;
+  prompt.style.backgroundColor = color;
+  prompt.addEventListener("animationend", hidePrompt);
+  prompt.classList.remove("hidden");
+}
+
+function hidePrompt() {
+  const prompt = document.querySelector("#feedback");
+  prompt.textContent = "";
+  prompt.offsetHeight;
+  prompt.classList.add("hidden");
 }
