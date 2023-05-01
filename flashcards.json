@@ -1,6 +1,6 @@
 {
   "cards": {
-    "0": {
+    "a0": {
       "answer": "HTML (HyperText Markup Language) er et standardmærkningssprog, der bruges til at oprette websteder og webapplikationer.",
       "code_example": "<!DOCTYPE html>\n<html>\n<head>\n<title>HTML eksempel</title>\n</head>\n<body>\n<p>Dette er et eksempel på HTML-kode.</p>\n</body>\n</html>",
       "difficulty": "easy",
@@ -10,7 +10,7 @@
       "question": "Hvad er HTML?",
       "topic": "General"
     },
-    "1": {
+    "a1": {
       "answer": "CSS (Cascading Style Sheets) er et stylesheetsprog, der bruges til at beskrive udseendet og formateringen af et dokument skrevet i HTML.",
       "code_example": "body {\n  font-family: Arial, sans-serif;\n  background-color: lightblue;\n}",
       "difficulty": "easy",
@@ -20,7 +20,7 @@
       "question": "Hvad er CSS?",
       "topic": "General"
     },
-    "2": {
+    "a2": {
       "answer": "En eventlistener er en funktion, der lytter efter en bestemt hændelse, som f.eks. et museklik, og udfører en handling, når hændelsen opstår.",
       "code_example": "document.querySelector('button').addEventListener('click', function() {\n  alert('Klik registreret!');\n});",
       "difficulty": "medium",
@@ -30,7 +30,7 @@
       "question": "Hvad er en eventlistener i JavaScript?",
       "topic": "Events"
     },
-    "3": {
+    "a3": {
       "answer": "Man kan tilføje en klasse til et HTML-element ved at bruge metoden 'classList.add()' på elementet.",
       "code_example": "document.querySelector('.myElement').classList.add('newClass');",
       "difficulty": "medium",
@@ -40,7 +40,7 @@
       "question": "Hvordan tilføjer man en klasse til et HTML-element med JavaScript?",
       "topic": "classList"
     },
-    "4": {
+    "a4": {
       "answer": "En funktion er en samling af instruktioner, der udfører en bestemt opgave. Funktioner bruges til at opdele komplekse problemer i mindre og mere håndterbare opgaver.",
       "code_example": "function helloWorld() {\n  console.log('Hej, verden!');\n}\n\nhelloWorld();",
       "difficulty": "medium",
@@ -50,7 +50,7 @@
       "question": "Hvad er en funktion i programmering?",
       "topic": "Functions"
     },
-    "5": {
+    "a5": {
       "answer": "I JavaScript kan man oprette en funktion ved at bruge 'function' nøgleordet, efterfulgt af et funktionsnavn, parenteser og en kodeblok indeholdende instruktionerne.",
       "code_example": "function sum(a, b) {\n  return a + b;\n}\n\nconsole.log(sum(2, 3));",
       "difficulty": "medium",
@@ -60,7 +60,7 @@
       "question": "Hvordan opretter man en funktion i JavaScript?",
       "topic": "Functions"
     },
-    "6": {
+    "a6": {
       "answer": "Fetch API er en moderne, fleksibel og enkel metode til at hente ressourcer fra serveren. Den returnerer en 'Promise', der løser til 'Response'-objektet, som repræsenterer serverens svar.",
       "code_example": "fetch('https://api.example.com/data')\n  .then(response => response.json())\n  .then(data => console.log(data))\n  .catch(error => console.error('Error:', error));",
       "difficulty": "medium",
@@ -70,7 +70,7 @@
       "question": "Hvordan arbejder fetch API med JavaScript?",
       "topic": "Fetch"
     },
-    "7": {
+    "a7": {
       "answer": "For at oprette en responsiv navigation med CSS Flexbox, kan man bruge 'display: flex' på containeren og justere elementernes størrelse og placering ved hjælp af Flexbox egenskaber.",
       "code_example": "nav {\n  display: flex;\n  justify-content: space-between;\n}\n\nnav a {\n  flex: 1;\n  text-align: center;\n}",
       "difficulty": "hard",
@@ -80,7 +80,7 @@
       "question": "Hvordan opretter man en responsiv navigation med CSS Flexbox?",
       "topic": "Flexbox"
     },
-    "8": {
+    "a8": {
       "answer": "For at bruge CSS Grid til at lave et layout, skal man angive 'display: grid' på containeren og derefter definere gitterets rækker og kolonner ved hjælp af 'grid-template-rows' og 'grid-template-columns' egenskaber.",
       "code_example": ".grid-container {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  grid-template-rows: auto;\n  grid-gap: 10px;\n}",
       "difficulty": "hard",
@@ -90,7 +90,7 @@
       "question": "Hvordan bruger man CSS Grid til at lave et layout?",
       "topic": "Grid"
     },
-    "9": {
+    "a9": {
       "answer": "For at lave en custom event i JavaScript, skal man oprette en instans af 'CustomEvent'-klassen og derefter bruge 'dispatchEvent()' metoden til at udløse eventet på et bestemt element.",
       "code_example": "const myEvent = new CustomEvent('myCustomEvent', { detail: { message: 'Custom event udløst' } });\ndocument.querySelector('#myElement').addEventListener('myCustomEvent', function (e) {\n  console.log(e.detail.message);\n});\ndocument.querySelector('#myElement').dispatchEvent(myEvent);",
       "difficulty": "hard",
@@ -100,7 +100,7 @@
       "question": "Hvordan laver man en custom event i JavaScript?",
       "topic": "Events"
     },
-    "10": {
+    "a10": {
       "answer": "Event delegation involverer at binde en event listener til en forældreelement i stedet for individuelle børneelementer. Når eventet udløses, bruges event.target og event.currentTarget til at bestemme, om den korrekte børneelement blev interageret med.",
       "code_example": "document.querySelector('#parentElement').addEventListener('click', function (event) {\n  if (event.target.matches('.childElement')) {\n    console.log('Et barn-element blev klikket på.');\n  }\n});",
       "difficulty": "hard",
@@ -110,7 +110,7 @@
       "question": "Hvordan bruger man event delegation i JavaScript?",
       "topic": "Events"
     },
-    "11": {
+    "a11": {
       "answer": "For at håndtere asynkron fejlhåndtering med async/await i JavaScript, skal man bruge en try/catch blok inde i en async funktion og fange eventuelle fejl, der opstår under udførelsen af await-udtryk.",
       "code_example": "async function fetchData(url) {\n  try {\n    const response = await fetch(url);\n    const data = await response.json();\n    console.log(data);\n  } catch (error) {\n    console.error('Error:', error);\n  }\n}\n\nfetchData('https://api.example.com/data');",
       "difficulty": "hard",
@@ -120,7 +120,7 @@
       "question": "Hvordan håndterer man asynkron fejlhåndtering i JavaScript med async/await?",
       "topic": "Async-await"
     },
-    "12": {
+    "a12": {
       "answer": "En JavaScript Promise er et objekt, der repræsenterer det endelige resultat af en asynkron operation. Promises kan bruges til at håndtere asynkrone opgaver ved at kæde .then() og .catch() metoderne.",
       "code_example": "const myPromise = new Promise((resolve, reject) => {\n  setTimeout(() => {\n    resolve('Success!');\n  }, 2000);\n});\n\nmyPromise\n  .then(result => console.log(result))\n  .catch(error => console.error(error));",
       "difficulty": "hard",
@@ -130,7 +130,7 @@
       "question": "Hvad er en JavaScript Promise og hvordan bruger man den?",
       "topic": "Promise"
     },
-    "13": {
+    "a13": {
       "answer": "For at bruge WebSockets til at oprette en realtidsforbindelse mellem klient og server, skal man oprette en WebSocket-forbindelse ved hjælp af WebSocket API på klienten og en WebSocket server på serveren. Når forbindelsen er oprettet, kan man sende og modtage data mellem klient og server.",
       "code_example": "const socket = new WebSocket('ws://example.com/socket');\n\nsocket.addEventListener('open', (event) => {\n  socket.send('Hello, Server!');\n});\n\nsocket.addEventListener('message', (event) => {\n  console.log('Message from server:', event.data);\n});",
       "difficulty": "hard",
@@ -140,7 +140,7 @@
       "question": "Hvordan bruger man WebSockets til at oprette en realtidsforbindelse mellem klient og server?",
       "topic": "Websockets"
     },
-    "14": {
+    "a14": {
       "answer": "For at centrere et element både vandret og lodret med CSS, kan man bruge Flexbox eller Grid. I dette eksempel bruger vi Flexbox.",
       "code_example": ".container {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.centered-element {\n  width: 100px;\n  height: 100px;\n}",
       "difficulty": "medium",
@@ -150,7 +150,7 @@
       "question": "Hvordan centreres et element både vandret og lodret med CSS?",
       "topic": "General"
     },
-    "15": {
+    "a15": {
       "answer": "For at fjerne en event listener i JavaScript, skal man bruge metoden 'removeEventListener' med samme funktion og event type som blev brugt med 'addEventListener'.",
       "code_example": "function handleClick() {\n  console.log('Element clicked!');\n}\n\nconst element = document.querySelector('#myElement');\nelement.addEventListener('click', handleClick);\nelement.removeEventListener('click', handleClick);",
       "difficulty": "medium",
@@ -160,7 +160,7 @@
       "question": "Hvordan fjerner man en event listener i JavaScript?",
       "topic": "Events"
     },
-    "16": {
+    "a16": {
       "answer": "En anonym funktion er en funktion uden navn, mens en navngivet funktion har et navn. Anonyme funktioner er ofte brugt som callback-funktioner og kan ikke kaldes efter deres første brug, mens navngivne funktioner kan genbruges.",
       "code_example": "const anonymousFunction = function() {\n  console.log('Dette er en anonym funktion.');\n};\n\nfunction namedFunction() {\n  console.log('Dette er en navngivet funktion.');\n}",
       "difficulty": "medium",
@@ -170,7 +170,7 @@
       "question": "Hvad er forskellen mellem en anonym funktion og en navngivet funktion i JavaScript?",
       "topic": "Functions"
     },
-    "17": {
+    "a17": {
       "answer": "For at gemme data i localStorage i JavaScript, kan man bruge metoden 'setItem' med et nøgle-værdi-par. Data gemt i localStorage er gemt som tekst, så objekter skal konverteres til en tekststreng ved hjælp af JSON.stringify().",
       "code_example": "const myData = { name: 'John', age: 25 };\nlocalStorage.setItem('userData', JSON.stringify(myData));",
       "difficulty": "medium",
@@ -180,7 +180,7 @@
       "question": "Hvordan kan man gemme data i localStorage i JavaScript?",
       "topic": "localStorage"
     },
-    "18": {
+    "a18": {
       "answer": "For at oprette en responsiv navigationbar med HTML og CSS, kan man bruge media queries for at justere stilarter baseret på skærmstørrelse og Flexbox eller Grid til at placere navigationselementer.",
       "code_example": "@media (max-width: 768px) {\n  .navbar {\n    display: flex;\n    flex-direction: column;\n  }\n}\n\n@media (min-width: 769px) {\n  .navbar {\n    display: flex;\n    flex-direction: row;\n  }\n}",
       "difficulty": "medium",
@@ -190,7 +190,7 @@
       "question": "Hvordan opretter man en responsiv navigationbar med HTML og CSS?",
       "topic": "General"
     },
-    "19": {
+    "a19": {
       "answer": "I JavaScript-eventobjekter refererer 'target' til elementet, hvor eventet faktisk blev udløst, mens 'currentTarget' refererer til elementet, hvor eventlytteren er knyttet.",
       "code_example": "document.querySelector('#parent').addEventListener('click', function(event) {\n  console.log('Target:', event.target);\n  console.log('CurrentTarget:', event.currentTarget);\n});",
       "difficulty": "medium",
@@ -200,7 +200,7 @@
       "question": "Hvad er forskellen mellem 'target' og 'currentTarget' i JavaScript-eventobjekter?",
       "topic": "Events"
     },
-    "20": {
+    "a20": {
       "answer": "En IIFE (Immediately Invoked Function Expression) er en funktion, der er defineret og kaldes straks efter dens definition. IIFE'er er nyttige til at oprette en isoleret scope og undgå forurening af det globale scope.",
       "code_example": "(function() {\n  const localVar = 'I am in an IIFE';\n  console.log(localVar);\n})();",
       "difficulty": "medium",
@@ -210,7 +210,7 @@
       "question": "Hvordan kan man bruge en IIFE (Immediately Invoked Function Expression) i JavaScript?",
       "topic": "Functions"
     },
-    "21": {
+    "a21": {
       "answer": "For at bruge fetch API i JavaScript til at lave en GET-anmodning, skal man kalde fetch() funktionen med URL'en til det ønskede ressource og derefter bruge .then() og .catch() metoderne til at håndtere det returnerede Promise.",
       "code_example": "fetch('https://api.example.com/data')\n  .then(response => response.json())\n  .then(data => console.log(data))\n  .catch(error => console.error('Error:', error));",
       "difficulty": "medium",
@@ -220,7 +220,7 @@
       "question": "Hvordan bruger man fetch API i JavaScript til at lave en GET-anmodning?",
       "topic": "Fetch"
     },
-    "22": {
+    "a22": {
       "answer": "For at tilføje en baggrundsfarve til et HTML-element med CSS, skal du bruge 'background-color' egenskaben og angive en farveværdi.",
       "code_example": ".myElement {\n  background-color: blue;\n}",
       "difficulty": "easy",
@@ -230,7 +230,7 @@
       "question": "Hvordan tilføjer man en baggrundsfarve til et HTML-element med CSS?",
       "topic": "General"
     },
-    "23": {
+    "a23": {
       "answer": "For at tilføje en 'click' eventlistener til et element i JavaScript, skal du bruge 'addEventListener()' metoden på det valgte element og angive eventtypen som 'click' samt en callback-funktion.",
       "code_example": "document.querySelector('#myElement').addEventListener('click', function() {\n  console.log('Element clicked!');\n});",
       "difficulty": "easy",
@@ -240,7 +240,7 @@
       "question": "Hvordan tilføjer man en 'click' eventlistener til et element i JavaScript?",
       "topic": "Events"
     },
-    "24": {
+    "a24": {
       "answer": "For at definere en simpel funktion i JavaScript, skal du bruge 'function' nøgleordet, give funktionen et navn og angive eventuelle parametre inden for parenteser. Funktionen skal afsluttes med krøllede parenteser, som indeholder funktionskroppen.",
       "code_example": "function greet(name) {\n  console.log('Hello, ' + name + '!');\n}",
       "difficulty": "easy",
@@ -250,7 +250,7 @@
       "question": "Hvordan definerer man en simpel funktion i JavaScript?",
       "topic": "Functions"
     },
-    "25": {
+    "a25": {
       "answer": "For at hente data fra en JSON-fil ved hjælp af fetch API i JavaScript, skal du kalde 'fetch()' funktionen med filens URL og derefter bruge '.then()' og '.catch()' metoderne til at håndtere det returnerede Promise og behandle JSON-data.",
       "code_example": "fetch('https://api.example.com/data.json')\n  .then(response => response.json())\n  .then(data => console.log(data))\n  .catch(error => console.error('Error:', error));",
       "difficulty": "easy",
