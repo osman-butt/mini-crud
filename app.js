@@ -21,6 +21,10 @@ async function initApp() {
   document
     .querySelector("#filter-btn")
     .addEventListener("click", filterFlashcards);
+    document
+  .querySelector("#btn-search") // Find the right button, currently it has the same id as "CREATE NEW FLASHCARD"
+  .addEventListener("click", searchFlashcards);
+
 }
 
 async function updateFlashCardsGrid() {
@@ -226,4 +230,14 @@ async function filterFlashcards() {
     flashCard.difficulty.toLowerCase().includes(filterKeyword)
   );
   showFlashCards(filteredFlashCards);
+}
+
+async function searchFlashcards() {
+  console.log("---searchFlashcards---");
+  const searchKeyword = document.querySelector("#input-search").value.toLowerCase();
+  const flashCards = await getFlashCards();
+  const searchedFlashCards = flashCards.filter(flashCard =>
+    flashCard.question.toLowerCase().includes(searchKeyword)
+  );
+  showFlashCards(searchedFlashCards);
 }
