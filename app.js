@@ -106,13 +106,18 @@ function showDeleteDialog(flashCard) {
 }
 
 function deleteFlashcardClicked(event) {
-  console.log("DELETED: " + event);
+  console.log("---deleteFlashcardClicked()---");
+  const id = event.target.getAttribute("data-id");
+  console.log(id);
+  deleteFlashcard(id);
 }
 
-async function deleteFlashcard(id) {
+function deleteFlashcard(id) {
   console.log("---deleteFlashcard()---");
 }
 
 function closeDeleteDialog() {
   console.log("closeDeleteDialog");
+  document.querySelector("#form-delete").removeAttribute("data-id");
+  document.querySelector("#dialog-delete").close();
 }
