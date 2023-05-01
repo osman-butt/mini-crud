@@ -18,6 +18,10 @@ async function initApp() {
   document
     .querySelector("#sort-data")
     .addEventListener("change", sortFlashcards);
+    document
+  .querySelector("#btn-search") // Find the right button, currently it has the same id as "CREATE NEW FLASHCARD"
+  .addEventListener("click", searchFlashcards);
+
 }
 
 async function updateFlashCardsGrid() {
