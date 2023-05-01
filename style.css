@@ -157,3 +157,8 @@ dialog {
   display: grid;
   grid-template-columns: auto auto;
 }
+
+.dialog-delete-question > span {
+  font-weight: lighter;
+  font-style: italic;
+}
