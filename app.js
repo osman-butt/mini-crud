@@ -213,3 +213,17 @@ function rankDifficulty(flashCard) {
     return 3;
   }
 }
+
+async function filterFlashcards() {
+  console.log("---filterFlashcards---");
+  const filterKeyword = document.querySelector("#filter-input").value.toLowerCase();
+  const flashCards = await getFlashCards();
+  const filteredFlashCards = flashCards.filter(flashCard =>
+    flashCard.question.toLowerCase().includes(filterKeyword) ||
+    flashCard.answer.toLowerCase().includes(filterKeyword) ||
+    flashCard.language.toLowerCase().includes(filterKeyword) ||
+    flashCard.topic.toLowerCase().includes(filterKeyword) ||
+    flashCard.difficulty.toLowerCase().includes(filterKeyword)
+  );
+  showFlashCards(filteredFlashCards);
+}
