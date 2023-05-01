@@ -171,6 +171,14 @@ async function sortFlashcards(event) {
     console.log("Sorting by Difficulty Desc");
     flashCards.sort(sortByDifficultyDescending);
     showFlashCards(flashCards);
+  } else if (event.target.value === "TopicAz") {
+    console.log("Sorting by Topic A-Z");
+    flashCards.sort(sortByTopicAz);
+    showFlashCards(flashCards);
+  } else if (event.target.value === "TopicZa") {
+    console.log("Sorting by Topic Z-A");
+    flashCards.sort(sortByTopicZa);
+    showFlashCards(flashCards);
   } else {
     updateFlashCardsGrid();
   }
@@ -185,6 +193,12 @@ function sortByDifficultyDescending(flashCard1, flashCard2) {
   flashCard1.difficultyLevel = -rankDifficulty(flashCard1);
   flashCard2.difficultyLevel = -rankDifficulty(flashCard2);
   return flashCard1.difficultyLevel - flashCard2.difficultyLevel;
+}
+function sortByTopicAz(flashCard1, flashCard2) {
+  return flashCard1.topic.localeCompare(flashCard2.topic);
+}
+function sortByTopicZa(flashCard1, flashCard2) {
+  return flashCard2.topic.localeCompare(flashCard1.topic);
 }
 
 function rankDifficulty(flashCard) {
