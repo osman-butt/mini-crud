@@ -15,6 +15,9 @@ async function initApp() {
   document
     .querySelector("#form-delete .btn-cancel")
     .addEventListener("click", closeDeleteDialog);
+  document
+    .querySelector("#sort-data")
+    .addEventListener("change", sortFlashcards);
 }
 
 async function updateFlashCardsGrid() {
@@ -155,4 +158,55 @@ function hidePrompt() {
   prompt.textContent = "";
   prompt.offsetHeight;
   prompt.classList.add("hidden");
+}
+
+async function sortFlashcards(event) {
+  console.log("---sortFlashcards---");
+  const flashCards = await getFlashCards();
+  if (event.target.value === "DifficultyAsc") {
+    console.log("Sorting by Difficulty Asc");
+    flashCards.sort(sortByDifficultyAscending);
+    showFlashCards(flashCards);
+  } else if (event.target.value === "DifficultyDesc") {
+    console.log("Sorting by Difficulty Desc");
+    flashCards.sort(sortByDifficultyDescending);
+    showFlashCards(flashCards);
+  } else if (event.target.value === "TopicAz") {
+    console.log("Sorting by Topic A-Z");
+    flashCards.sort(sortByTopicAz);
+    showFlashCards(flashCards);
+  } else if (event.target.value === "TopicZa") {
+    console.log("Sorting by Topic Z-A");
+    flashCards.sort(sortByTopicZa);
+    showFlashCards(flashCards);
+  } else {
+    updateFlashCardsGrid();
+  }
+}
+
+function sortByDifficultyAscending(flashCard1, flashCard2) {
+  flashCard1.difficultyLevel = rankDifficulty(flashCard1);
+  flashCard2.difficultyLevel = rankDifficulty(flashCard2);
+  return flashCard1.difficultyLevel - flashCard2.difficultyLevel;
+}
+function sortByDifficultyDescending(flashCard1, flashCard2) {
+  flashCard1.difficultyLevel = -rankDifficulty(flashCard1);
+  flashCard2.difficultyLevel = -rankDifficulty(flashCard2);
+  return flashCard1.difficultyLevel - flashCard2.difficultyLevel;
+}
+function sortByTopicAz(flashCard1, flashCard2) {
+  return flashCard1.topic.localeCompare(flashCard2.topic);
+}
+function sortByTopicZa(flashCard1, flashCard2) {
+  return flashCard2.topic.localeCompare(flashCard1.topic);
+}
+
+function rankDifficulty(flashCard) {
+  if (flashCard.difficulty === "easy") {
+    return 1;
+  } else if (flashCard.difficulty === "medium") {
+    return 2;
+  } else if (flashCard.difficulty === "hard") {
+    return 3;
+  }
 }
