@@ -19,11 +19,23 @@ async function updateFlashCardsGrid() {
 async function getFlashCards() {
   console.log("---getFlashCards()---");
   const response = await fetch(`${endpoint}/${query}.json`);
-  const listOfFlashCards = await response.json();
+  const data = await response.json();
+  const listOfFlashCards = prepareData(data);
   if (response.ok) {
     console.log("getFlashCards status " + response.status);
   }
   return listOfFlashCards;
+}
+
+function prepareData(dataObject) {
+  console.log("---prepareData---");
+  const flashCards = [];
+  for (const key in dataObject) {
+    const flashCard = dataObject[key];
+    flashCard.id = key;
+    flashCards.push(flashCard);
+  }
+  return flashCards;
 }
 
 function showFlashCards(listOfFlashCards) {
