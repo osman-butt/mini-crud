@@ -108,12 +108,18 @@ function showDeleteDialog(flashCard) {
 function deleteFlashcardClicked(event) {
   console.log("---deleteFlashcardClicked()---");
   const id = event.target.getAttribute("data-id");
-  console.log(id);
   deleteFlashcard(id);
 }
 
-function deleteFlashcard(id) {
+async function deleteFlashcard(id) {
   console.log("---deleteFlashcard()---");
+  const url = `${endpoint}/${query}/${id}.json`;
+  const res = await fetch(url, { method: "DELETE" });
+  if (res.ok) {
+    console.log("id=" + id + ", was deleted succesfully");
+  }
+  console.log(res);
+  updateFlashCardsGrid();
 }
 
 function closeDeleteDialog() {
