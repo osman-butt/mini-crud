@@ -10,6 +10,13 @@ async function initApp() {
   console.log("initApp: app.js is running 🎉");
   updateFlashCardsGrid();
   document
+    .getElementById("btn-create")
+    .addEventListener("click", openCreateDialog);
+  document.getElementById("create-form").addEventListener("submit", handleSave);
+  document
+    .getElementById("create-flashcard-btn-cancel")
+    .addEventListener("click", closeCreateDialog);
+  document
     .querySelector("#form-delete")
     .addEventListener("submit", deleteFlashcardClicked);
   document
@@ -247,15 +254,17 @@ async function searchFlashcards() {
 }
 
 //Eventlistener for create button and dialog box
-document
-  .getElementById("btn-create")
-  .addEventListener("click", openCreateDialog);
-document
-  .getElementById("create-flashcard-btn-cancel")
-  .addEventListener("click", closeCreateDialog);
-document.getElementById("create-form").addEventListener("submit", handleSave);
-
 function openCreateDialog() {
+  // Reset input
+  document.querySelector("#create-question").value = "";
+  document.querySelector("#create-answer").value = "";
+  document.querySelector("#create-language").value = "";
+  document.querySelector("#create-topic").value = "";
+  document.querySelector("#create-difficulty").value = "";
+  document.querySelector("#create-image").value = "";
+  document.querySelector("#create-link").value = "";
+  document.querySelector("#create-code-snippet").value = "";
+  // open dialog
   document.getElementById("dialog-create").showModal();
 }
 
@@ -267,20 +276,21 @@ async function handleSave(event) {
   event.preventDefault();
 
   const newFlashCard = {
-    question: document.getElementById("input-question").value,
-    answer: document.getElementById("input-answer").value,
-    subject: document.getElementById("input-subject").value,
-    difficulty: document.getElementById("input-difficulty".value),
-    code_example: document.getElementById("input-code-snippet").value,
+    question: document.querySelector("#create-question").value,
+    answer: document.querySelector("#create-answer").value,
+    language: document.querySelector("#create-language").value,
+    topic: document.querySelector("#create-topic").value,
+    difficulty: document.querySelector("#create-difficulty").value,
+    image: document.querySelector("#create-image").value,
+    link: document.querySelector("#create-link").value,
+    code_example: document.querySelector("#create-code-snippet").value,
   };
 
-  await createFlashcard(newFlashCard);
-  updateFlashCardsGrid();
-
+  createFlashcard(newFlashCard);
   closeCreateDialog();
 }
 
-async function createFlashcard(flashcard) {
+async function createFlashcard(flashCard) {
   const response = await fetch(`${endpoint}/${query}.json`, {
     method: "POST",
     body: JSON.stringify(flashCard),
@@ -290,4 +300,5 @@ async function createFlashcard(flashcard) {
   } else {
     console.error("Error creating flashcard", response.status);
   }
+  updateFlashCardsGrid();
 }
