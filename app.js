@@ -31,6 +31,15 @@ async function initApp() {
   document
     .querySelector("#btn-search") // Find the right button, currently it has the same id as "CREATE NEW FLASHCARD"
     .addEventListener("click", searchFlashcards);
+  document
+    .querySelector("#showanswer")
+    .addEventListener("click", () =>
+      document.querySelector("#card").classList.add("rotate")
+    );
+  document.querySelector("#hideanswer").addEventListener("click", () => {
+    document.querySelector("#card").offsetHeight;
+    document.querySelector("#card").classList.remove("rotate");
+  });
 }
 
 async function updateFlashCardsGrid() {
@@ -95,21 +104,21 @@ function showFlashCard(flashCard) {
 
 function showReadDialog(flashCard) {
   console.log("---showReadDialog()---");
-  document.querySelector(".dialog-read-question span").textContent =
+  document.querySelector(".dialog-read-question").textContent =
     flashCard.question;
-  document.querySelector(".dialog-read-answer span").textContent =
-    flashCard.answer;
+  document.querySelector(".dialog-read-answer").textContent = flashCard.answer;
   // document.querySelector("#dialog-read-img").src = flashCard.image;
-  document.querySelector(".dialog-read-language span").textContent =
+  document.querySelector(".dialog-read-language").textContent =
     flashCard.language;
-  document.querySelector(".dialog-read-topic span").textContent =
-    flashCard.topic;
-  document.querySelector(".dialog-read-difficulty span").textContent =
+  document.querySelector(".dialog-read-topic").textContent = flashCard.topic;
+  document.querySelector(".dialog-read-difficulty").textContent =
     flashCard.difficulty;
   document.querySelector("pre.dialog-read-example").textContent =
     flashCard.code_example;
   document.querySelector(".dialog-read-docs a").textContent = flashCard.link;
   document.querySelector(".dialog-read-docs a").href = flashCard.link;
+  document.querySelector("#card").offsetHeight;
+  document.querySelector("#card").classList.remove("rotate");
   document.querySelector("#dialog-read").showModal();
 }
 
@@ -231,7 +240,7 @@ async function filterFlashcards() {
     .value.toLowerCase();
   const flashCards = await getFlashCards();
   const filteredFlashCards = flashCards.filter(
-    (flashCard) =>
+    flashCard =>
       flashCard.question.toLowerCase().includes(filterKeyword) ||
       flashCard.answer.toLowerCase().includes(filterKeyword) ||
       flashCard.language.toLowerCase().includes(filterKeyword) ||
@@ -247,7 +256,7 @@ async function searchFlashcards() {
     .querySelector("#input-search")
     .value.toLowerCase();
   const flashCards = await getFlashCards();
-  const searchedFlashCards = flashCards.filter((flashCard) =>
+  const searchedFlashCards = flashCards.filter(flashCard =>
     flashCard.question.toLowerCase().includes(searchKeyword)
   );
   showFlashCards(searchedFlashCards);
