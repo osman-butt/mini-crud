@@ -109,13 +109,46 @@
         <label for="create-code-snippet">Code Snippet:</label>
         <input type="text" id="create-code-snippet" required />
 
-        <div>
-          <button type="button" id="create-flashcard-btn-cancel">Cancel</button>
+        <div >
+          <button id="create-flashcard-btn-cancel">Cancel</buttonid=>
           <button type="submit" id="create-flashcard-btn-save">Save</button>
         </div>
       </form>
     </dialog>
     <!--------- DIALOG UPDATE --------->
+        <dialog id ="dialog-update">
+      <h2>Update Flashcard</h2>
+      <form id="update-form">
+        <label for = "update-question">Question:</label> 
+        <input type="text" name="update-question" id="update-question" required />
+
+        <label for = "update-answer">Answer:</label>
+        <input type ="text" id="update-answer" required/>
+
+        <label for="update-language">Language:</label>
+        <input type="text" id="update-language" required/>
+
+        <label for="update-topic">Topic:</label>
+        <input type="text" id="update-topic" required/>
+
+        <label for="update-difficulty">Difficulty</label>
+        <input type="text" id="update-difficulty" required/>
+
+        <label for="update-image">image</label>
+        <input type="url" id="update-image" required/>
+
+        <label for="update-link">Link</label>
+        <input type="url" id="update-link" required/>
+
+        <label for="update-code-snippet">Code Snippet:</label>
+        <input type="text" id="update-code-snippet" required />
+
+        <div>
+          <button type="button" id="update-flashcard-btn-cancel">Cancel</button>
+          <button type="submit" id="update-flashcard-btn-save">Save</button>
+        </div>
+      </form>
+    </dialog>
     <!--------- DIALOG DELETE --------->
     <dialog id="dialog-delete">
       <h2 id="dialog-delete-name"></h2>

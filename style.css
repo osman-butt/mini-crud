@@ -195,14 +195,16 @@ dialog {
   font-style: italic;
 }
 
-/* -------- DIALOG CREATE -------- */
-#dialog-create {
+/* -------- DIALOG CREATE & UPDATE -------- */
+#dialog-create,
+#dialog-update {
   display: flex, none;
   flex-direction: column;
   align-items: center;
 }
 
-#dialog-create form {
+#dialog-create form,
+#dialog-update form {
   display: grid;
   grid-template-columns: 1fr;
   gap: 10px;
@@ -212,7 +214,9 @@ dialog {
 }
 
 #dialog-create input,
-#dialog-create textarea {
+#dialog-create textarea,
+#dialog-update input,
+#dialog-update textarea {
   width: 100%;
   padding: 8px;
   border: none;
@@ -221,20 +225,24 @@ dialog {
   background-color: #f1f1f1;
 }
 
-#dialog-create textarea {
+#dialog-create textarea,
+#dialog-update textarea {
   resize: vertical;
   min-height: 100px;
 }
 
-#dialog-create label {
+#dialog-create label,
+#dialog-update label {
   font-weight: bold;
 }
 
-#dialog-create button {
+#dialog-create button,
+#dialog-update button {
   width: 100px;
 }
 
-#dialog-create div {
+#dialog-create div,
+#dialog-update div {
   display: flex;
   justify-content: space-between;
   margin-top: 1em;

@@ -14,6 +14,12 @@ async function initApp() {
     .addEventListener("click", openCreateDialog);
   document.getElementById("create-form").addEventListener("submit", handleSave);
   document
+    .getElementById("update-flashcard-btn-cancel")
+    .addEventListener("click", closeUpdateDialog);
+  document
+    .querySelector("#update-form")
+    .addEventListener("submit", updateFlashcardClicked);
+  document
     .getElementById("create-flashcard-btn-cancel")
     .addEventListener("click", closeCreateDialog);
   document
@@ -100,6 +106,10 @@ function showFlashCard(flashCard) {
   document
     .querySelector("#grid-container article:last-child .btn-delete")
     .addEventListener("click", () => showDeleteDialog(flashCard));
+
+  document
+    .querySelector("#grid-container article:last-child .btn-update")
+    .addEventListener("click", () => showUpdateDialog(flashCard));
 }
 
 function showReadDialog(flashCard) {
@@ -128,6 +138,65 @@ function showDeleteDialog(flashCard) {
     flashCard.question;
   document.querySelector("#form-delete").setAttribute("data-id", flashCard.id);
   document.querySelector("#dialog-delete").showModal();
+}
+
+function showUpdateDialog(flashCard) {
+  document.querySelector("#update-question").value = flashCard.question;
+  document.querySelector("#update-answer").value = flashCard.answer;
+  document.querySelector("#update-language").value = flashCard.language;
+  document.querySelector("#update-topic").value = flashCard.topic;
+  document.querySelector("#update-difficulty").value = flashCard.difficulty;
+  document.querySelector("#update-image").value = flashCard.image;
+  document.querySelector("#update-link").value = flashCard.link;
+  document.querySelector("#update-code-snippet").value = flashCard.code_example;
+  document.querySelector("#update-form").setAttribute("data-id", flashCard.id);
+  document.querySelector("#dialog-update").showModal();
+}
+
+function closeUpdateDialog() {
+  console.log("---closeUpdateDialog()---");
+  document.querySelector("#dialog-update").close();
+}
+
+function updateFlashcardClicked(event) {
+  console.log("---updateFlashcardClicked()---");
+  event.preventDefault();
+  const form = event.target; // or "this"
+  // extract the values from inputs in the form
+  console.log(form.title);
+  const newFlashCard = {
+    question: document.querySelector("#update-question").value,
+    answer: document.querySelector("#update-answer").value,
+    language: document.querySelector("#update-language").value,
+    topic: document.querySelector("#update-topic").value,
+    difficulty: document.querySelector("#update-difficulty").value,
+    image: document.querySelector("#update-image").value,
+    link: document.querySelector("#update-link").value,
+    code_example: document.querySelector("#update-code-snippet").value,
+  };
+  const id = form.getAttribute("data-id");
+  updateFlashCard(newFlashCard, id);
+  closeUpdateDialog();
+}
+
+async function updateFlashCard(newFlashCard, id) {
+  console.log("---updateFlashCard()---");
+  const flashCardAsJson = JSON.stringify(newFlashCard);
+  const url = `${endpoint}/${query}/${id}.json`;
+  const res = await fetch(url, {
+    method: "PUT",
+    body: flashCardAsJson,
+  });
+  console.log(`UPDATED flashcard STATUS: ${res.status} - url: ${url}`);
+  const data = await res.json();
+
+  updateFlashCardsGrid();
+}
+
+function deleteFlashcardClicked(event) {
+  console.log("---deleteFlashcardClicked()---");
+  const id = event.target.getAttribute("data-id");
+  deleteFlashcard(id);
 }
 
 function deleteFlashcardClicked(event) {
