@@ -187,8 +187,10 @@ async function updateFlashCard(newFlashCard, id) {
     method: "PUT",
     body: flashCardAsJson,
   });
-  console.log(`UPDATED flashcard STATUS: ${res.status} - url: ${url}`);
-  const data = await res.json();
+  if (res.ok) {
+    console.log("id=" + id + ", was updated succesfully");
+    showFeedbackMsg("put");
+  }
 
   updateFlashCardsGrid();
 }
@@ -374,9 +376,8 @@ async function createFlashcard(flashCard) {
     body: JSON.stringify(flashCard),
   });
   if (response.ok) {
-    console.log("Flashcard created succesfully");
-  } else {
-    console.error("Error creating flashcard", response.status);
+    console.log("The flashcard was updated succesfully");
+    showFeedbackMsg("post");
   }
   updateFlashCardsGrid();
 }
