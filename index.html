@@ -13,7 +13,12 @@
   </head>
   <body>
     <!--------- FEEDBACK GOES HERE --------->
-    <header><h1>Mini CRUD</h1></header>
+    <div id="feedback-container">
+      <div id="feedback" class="hidden"></div>
+    </div>
+    <header>
+      <h1>Mini CRUD</h1>
+    </header>
     <!--------- CREATE, SEARCH, SORT, FILTER --------->
     <section id="data-interaction-container">
       <!--------- CREATE --------->
@@ -24,7 +29,7 @@
       <!--------- SEARCH --------->
       <div id="search-container">
         <input type="search" id="input-search" placeholder="Search by title" />
-        <button id="btn-create">SEARCH</button>
+        <button id="btn-search">SEARCH</button>
       </div>
       <!--------- SORT & FILTER --------->
       <div id="filter-sort-container">
@@ -32,16 +37,18 @@
         <!--------- SORT --------->
         <label for="sort-data">Sort by: </label>
         <select name="sort-data" id="sort-data">
-          <option value="Difficulty">Difficulty</option>
-          <option value="Title">Title</option>
+          <option value=""></option>
+          <option value="DifficultyAsc">Difficulty &#8593</option>
+          <option value="DifficultyDesc">Difficulty &#8595</option>
+          <option value="TopicAz">Topic A-Z</option>
+          <option value="TopicZa">Topic Z-A</option>
         </select>
-        <label for="filter-data">Filter by topic: </label>
         <!--------- FILTER --------->
-        <select name="filter-data" id="filter-data">
-          <option value="HTML">HTML</option>
-          <option value="CSS">CSS</option>
-          <option value="JavaScript">JavaScript</option>
-        </select>
+        <div id="filter-container">
+          <label for="filter-input">Filter by keyword:</label>
+          <input type="text" id="filter-input" placeholder="Enter keyword" />
+          <button id="filter-btn">Filter</button>
+        </div>
       </div>
     </section>
     <!--------- CSS GRID --------->
@@ -100,6 +107,16 @@
     </dialog>
     <!--------- DIALOG UPDATE --------->
     <!--------- DIALOG DELETE --------->
+    <dialog id="dialog-delete">
+      <h2 id="dialog-delete-name"></h2>
+      <section class="dialog-grid">
+        <h2 class="dialog-delete-question">Do you want to delete the flashcard "<span class="dialog-delete-question"></span> " ?</h2>
+      </section>
+        <form method="dialog" id="form-delete">
+            <button type="button" class="btn-cancel">No</button>
+            <button class="btn-submit">Yes</button>
+        </form>
+    </dialog>
     <script src="app.js"></script>
   </body>
 </html>
