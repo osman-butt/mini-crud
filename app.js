@@ -10,6 +10,13 @@ async function initApp() {
   console.log("initApp: app.js is running 🎉");
   updateFlashCardsGrid();
   document
+    .getElementById("btn-create")
+    .addEventListener("click", openCreateDialog);
+  document.getElementById("create-form").addEventListener("submit", handleSave);
+  document
+    .getElementById("create-flashcard-btn-cancel")
+    .addEventListener("click", closeCreateDialog);
+  document
     .querySelector("#form-delete")
     .addEventListener("submit", deleteFlashcardClicked);
   document
@@ -21,10 +28,9 @@ async function initApp() {
   document
     .querySelector("#filter-btn")
     .addEventListener("click", filterFlashcards);
-    document
-  .querySelector("#btn-search") // Find the right button, currently it has the same id as "CREATE NEW FLASHCARD"
-  .addEventListener("click", searchFlashcards);
-
+  document
+    .querySelector("#btn-search") // Find the right button, currently it has the same id as "CREATE NEW FLASHCARD"
+    .addEventListener("click", searchFlashcards);
 }
 
 async function updateFlashCardsGrid() {
@@ -220,24 +226,79 @@ function rankDifficulty(flashCard) {
 
 async function filterFlashcards() {
   console.log("---filterFlashcards---");
-  const filterKeyword = document.querySelector("#filter-input").value.toLowerCase();
+  const filterKeyword = document
+    .querySelector("#filter-input")
+    .value.toLowerCase();
   const flashCards = await getFlashCards();
-  const filteredFlashCards = flashCards.filter(flashCard =>
-    flashCard.question.toLowerCase().includes(filterKeyword) ||
-    flashCard.answer.toLowerCase().includes(filterKeyword) ||
-    flashCard.language.toLowerCase().includes(filterKeyword) ||
-    flashCard.topic.toLowerCase().includes(filterKeyword) ||
-    flashCard.difficulty.toLowerCase().includes(filterKeyword)
+  const filteredFlashCards = flashCards.filter(
+    (flashCard) =>
+      flashCard.question.toLowerCase().includes(filterKeyword) ||
+      flashCard.answer.toLowerCase().includes(filterKeyword) ||
+      flashCard.language.toLowerCase().includes(filterKeyword) ||
+      flashCard.topic.toLowerCase().includes(filterKeyword) ||
+      flashCard.difficulty.toLowerCase().includes(filterKeyword)
   );
   showFlashCards(filteredFlashCards);
 }
 
 async function searchFlashcards() {
   console.log("---searchFlashcards---");
-  const searchKeyword = document.querySelector("#input-search").value.toLowerCase();
+  const searchKeyword = document
+    .querySelector("#input-search")
+    .value.toLowerCase();
   const flashCards = await getFlashCards();
-  const searchedFlashCards = flashCards.filter(flashCard =>
+  const searchedFlashCards = flashCards.filter((flashCard) =>
     flashCard.question.toLowerCase().includes(searchKeyword)
   );
   showFlashCards(searchedFlashCards);
+}
+
+//Eventlistener for create button and dialog box
+function openCreateDialog() {
+  // Reset input
+  document.querySelector("#create-question").value = "";
+  document.querySelector("#create-answer").value = "";
+  document.querySelector("#create-language").value = "";
+  document.querySelector("#create-topic").value = "";
+  document.querySelector("#create-difficulty").value = "";
+  document.querySelector("#create-image").value = "";
+  document.querySelector("#create-link").value = "";
+  document.querySelector("#create-code-snippet").value = "";
+  // open dialog
+  document.getElementById("dialog-create").showModal();
+}
+
+function closeCreateDialog() {
+  document.getElementById("dialog-create").close();
+}
+
+async function handleSave(event) {
+  event.preventDefault();
+
+  const newFlashCard = {
+    question: document.querySelector("#create-question").value,
+    answer: document.querySelector("#create-answer").value,
+    language: document.querySelector("#create-language").value,
+    topic: document.querySelector("#create-topic").value,
+    difficulty: document.querySelector("#create-difficulty").value,
+    image: document.querySelector("#create-image").value,
+    link: document.querySelector("#create-link").value,
+    code_example: document.querySelector("#create-code-snippet").value,
+  };
+
+  createFlashcard(newFlashCard);
+  closeCreateDialog();
+}
+
+async function createFlashcard(flashCard) {
+  const response = await fetch(`${endpoint}/${query}.json`, {
+    method: "POST",
+    body: JSON.stringify(flashCard),
+  });
+  if (response.ok) {
+    console.log("Flashcard created succesfully");
+  } else {
+    console.error("Error creating flashcard", response.status);
+  }
+  updateFlashCardsGrid();
 }
