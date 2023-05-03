@@ -93,9 +93,9 @@
 
         <label for="create-language">Language:</label>
         <select id="create-language" name="language" required>
-            <option value="da">CSS</option>
-            <option value="en">Javascript</option>
-            <option value="de">HTML</option>
+            <option value="css">CSS</option>
+            <option value="javascript">Javascript</option>
+            <option value="html">HTML</option>
             <!-- Add more languages here -->
         </select>
 
@@ -104,9 +104,9 @@
 
         <label for="create-difficulty">Difficulty</label>
         <select id="create-difficulty" name="difficulty" required>
-            <option value="easy">Let</option>
+            <option value="easy">Easy</option>
             <option value="medium">Medium</option>
-            <option value="hard">Svær</option>
+            <option value="hard">Hard</option>
         </select>
 
         <label for="create-image">Image:</label>
@@ -127,39 +127,49 @@
 
     </dialog>
     <!--------- DIALOG UPDATE --------->
-        <dialog id ="dialog-update">
-      <h2>Update Flashcard</h2>
-      <form id="update-form">
-        <label for = "update-question">Question:</label> 
+<dialog id="dialog-update">
+    <h2>Update Flashcard</h2>
+    <form id="update-form">
+        <label for="update-question">Question:</label>
         <input type="text" name="update-question" id="update-question" required />
 
-        <label for = "update-answer">Answer:</label>
-        <input type ="text" id="update-answer" required/>
+        <label for="update-answer">Answer:</label>
+        <input type="text" id="update-answer" required/>
 
         <label for="update-language">Language:</label>
-        <input type="text" id="update-language" required/>
+        <select id="update-language" name="language" required>
+            <option value="css">CSS</option>
+            <option value="javascript">JavaScript</option>
+            <option value="html">HTML</option>
+            <!-- Add more languages here -->
+        </select>
 
         <label for="update-topic">Topic:</label>
         <input type="text" id="update-topic" required/>
 
         <label for="update-difficulty">Difficulty</label>
-        <input type="text" id="update-difficulty" required/>
+        <select id="update-difficulty" name="difficulty" required>
+            <option value="easy">Let</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Svær</option>
+        </select>
 
-        <label for="update-image">image</label>
+        <label for="update-image">Image:</label>
         <input type="text" id="update-image" required/>
 
-        <label for="update-link">Link</label>
+        <label for="update-link">Link:</label>
         <input type="url" id="update-link" required/>
 
         <label for="update-code-snippet">Code Snippet:</label>
         <input type="text" id="update-code-snippet" required />
 
         <div>
-          <button type="button" id="update-flashcard-btn-cancel">Cancel</button>
-          <button type="submit" id="update-flashcard-btn-save">Save</button>
+            <button type="button" id="update-flashcard-btn-cancel">Cancel</button>
+            <button type="submit" id="update-flashcard-btn-save">Save</button>
         </div>
-      </form>
-    </dialog>
+    </form>
+</dialog>
+
     <!--------- DIALOG DELETE --------->
     <dialog id="dialog-delete">
       <h2 id="dialog-delete-name"></h2>
