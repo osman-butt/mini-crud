@@ -25,10 +25,11 @@
       <div id="btn-create-container">
         <button id="btn-create">CREATE NEW FLASHCARD</button>
       </div>
+
       <!--------- SEARCH --------->
       <div id="search-container">
         <input type="search" id="input-search" placeholder="Search by title" />
-        <button id="btn-create">SEARCH</button>
+        <button id="btn-search">SEARCH</button>
       </div>
       <!--------- SORT & FILTER --------->
       <div id="filter-sort-container">
@@ -59,31 +60,98 @@
     </section>
     <!--------- DIALOG READ --------->
     <dialog id="dialog-read">
-      <h2 id="dialog-read-name"></h2>
-      <section class="dialog-grid">
-        <!-- <img id="dialog-read-img" src="" /> -->
-        <h2 class="dialog-read-question"><span class="dialog-read-question"></span></h2>
-        <h4 class="dialog-read-answer"><span class="dialog-read-answer"></span></h4>
-        <p class="dialog-read-language">
-          Language: <span class="dialog-read-language"></span>
-        </p>
-        <p class="dialog-read-topic">
-          Topic: <span class="dialog-read-topic"></span>
-        </p>
-        <p class="dialog-read-difficulty">
-          Difficulty: <span class="dialog-read-difficulty"></span>
-        </p>
-        <p class="dialog-read-example">Example: 
-          <pre class="dialog-read-example"></pre>
-        </p>
-        <p class="dialog-read-docs">Documentation: <span class="dialog-read-docs"><a href="" target="_blank"></a></span></p>
-      </section>
-      <form method="dialog">
-        <button>CLOSE</button>
+      <div id="dialog-read-header">
+        <form method="dialog">
+          <button id="close-btn" style="text-align: left;">&#10006</button>
       </form>
+      <h2 class="dialog-read-question"></h2>
+      </div>
+        <div id="card">
+          <div id="front">
+            <section class="stats">
+              <p><span class="dialog-read-language"></span></p>
+              <p><span class="dialog-read-topic"></span></p>
+              <p><span class="dialog-read-difficulty"></span></p>
+              <div id="dialog-read-img-div"><img id="dialog-read-img" src="" alt=""></div>
+            </section>
+            <button focus id="showanswer">Show Answer</button>
+          </div>
+          <div id="back">
+            <h4 class="dialog-read-answer"></span></h4>
+            <pre class="dialog-read-example"></pre>
+            <p><span class="dialog-read-docs"><a href="" target="_blank"></a></span></p>
+             <button id="hideanswer">Hide Answer</button>
+          </div>
+        </div>
     </dialog>
     <!--------- DIALOG CREATE --------->
+    <dialog id ="dialog-create">
+      <h2>Create New Flashcard</h2>
+      <form id="create-form">
+        <label for = "create-question">Question:</label> 
+        <input type="text" id="create-question" required />
+
+        <label for = "create-answer">Answer:</label>
+        <input type ="text" id="create-answer" required/>
+
+        <label for="create-language">Language:</label>
+        <input type="text" id="create-language" required/>
+
+        <label for="create-topic">Topic:</label>
+        <input type="text" id="create-topic" required/>
+
+        <label for="create-difficulty">Difficulty</label>
+        <input type="text" id="create-difficulty" required/>
+
+        <label for="create-image">image</label>
+        <input type="url" id="create-image" required/>
+
+        <label for="create-link">Link</label>
+        <input type="url" id="create-link" required/>
+
+        <label for="create-code-snippet">Code Snippet:</label>
+        <input type="text" id="create-code-snippet" required />
+
+        <div >
+          <button id="create-flashcard-btn-cancel">Cancel</buttonid=>
+          <button type="submit" id="create-flashcard-btn-save">Save</button>
+        </div>
+      </form>
+    </dialog>
     <!--------- DIALOG UPDATE --------->
+        <dialog id ="dialog-update">
+      <h2>Update Flashcard</h2>
+      <form id="update-form">
+        <label for = "update-question">Question:</label> 
+        <input type="text" name="update-question" id="update-question" required />
+
+        <label for = "update-answer">Answer:</label>
+        <input type ="text" id="update-answer" required/>
+
+        <label for="update-language">Language:</label>
+        <input type="text" id="update-language" required/>
+
+        <label for="update-topic">Topic:</label>
+        <input type="text" id="update-topic" required/>
+
+        <label for="update-difficulty">Difficulty</label>
+        <input type="text" id="update-difficulty" required/>
+
+        <label for="update-image">image</label>
+        <input type="text" id="update-image" required/>
+
+        <label for="update-link">Link</label>
+        <input type="url" id="update-link" required/>
+
+        <label for="update-code-snippet">Code Snippet:</label>
+        <input type="text" id="update-code-snippet" required />
+
+        <div>
+          <button type="button" id="update-flashcard-btn-cancel">Cancel</button>
+          <button type="submit" id="update-flashcard-btn-save">Save</button>
+        </div>
+      </form>
+    </dialog>
     <!--------- DIALOG DELETE --------->
     <dialog id="dialog-delete">
       <h2 id="dialog-delete-name"></h2>
