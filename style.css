@@ -209,18 +209,16 @@ dialog {
 /* -------- DIALOG CREATE & UPDATE -------- */
 #dialog-create,
 #dialog-update {
-  display: flex, none;
+  /* display: flex, none;
   flex-direction: column;
-  align-items: center;
+  align-items: center; */
 }
 
 #dialog-create form,
 #dialog-update form {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 10px;
-  width: 100%;
-  max-width: 400px;
+
   padding: 1em;
 }
 
@@ -228,18 +226,14 @@ dialog {
 #dialog-create textarea,
 #dialog-update input,
 #dialog-update textarea {
-  width: 100%;
-  padding: 8px;
   border: none;
-  border-radius: 4px;
   box-sizing: border-box;
   background-color: #f1f1f1;
 }
 
 #dialog-create textarea,
 #dialog-update textarea {
-  resize: vertical;
-  min-height: 100px;
+  /* resize: vertical; */
 }
 
 #dialog-create label,
@@ -247,16 +241,141 @@ dialog {
   font-weight: bold;
 }
 
-#dialog-create button,
-#dialog-update button {
-  width: 100px;
-}
-
 #dialog-create div,
 #dialog-update div {
   display: flex;
   justify-content: space-between;
   margin-top: 1em;
+}
+
+/* -------- Dropdown-menu styling for CREATE & UPDATE -------- */
+
+.dropdown-menu {
+  display: inline-block;
+  width: 100%;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+.dropdown-menu:focus {
+  border-color: #66afe9;
+  outline: 0;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+/* -------- Responsiveness for Create/Update form -------- */
+
+#create-form > div,
+#update-form > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#create-form > div > button,
+#update-form > div > button {
+  width: 5em;
+  justify-self: center;
+}
+
+/* Style the dialogs and their content */
+dialog {
+  box-sizing: border-box;
+  padding: 20px;
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Style the form labels */
+form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Style the form inputs */
+form input,
+form select {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Style the form buttons */
+form button {
+  padding: 10px;
+  margin-right: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Add a clearfix to the form buttons container */
+form div::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the cancel button */
+#create-flashcard-btn-cancel,
+#update-flashcard-btn-cancel {
+  background-color: rgb(0, 0, 0);
+  color: #fff;
+}
+
+/* Style the save button */
+#create-flashcard-btn-save,
+#update-flashcard-btn-save {
+  background-color: #000000;
+  color: #fff;
+}
+
+@media screen and (max-width: 600px) {
+  form input,
+  form select,
+  form label {
+    font-size: 14px;
+  }
+
+  dialog {
+    padding: 10px;
+  }
+
+  form button {
+    padding: 8px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  form input,
+  form select,
+  form label {
+    font-size: 12px;
+  }
+
+  dialog {
+    padding: 5px;
+  }
+
+  form button {
+    padding: 6px;
+    font-size: 12px;
+  }
 }
 
 /* -------- Flip card -------- */
