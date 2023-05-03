@@ -19,13 +19,14 @@ async function initApp() {
     .querySelector("#sort-data")
     .addEventListener("change", sortFlashcards);
   document
-    .querySelector("#filter-btn")
-    .addEventListener("click", filterFlashcards);
+  .querySelector("#language")
+  .addEventListener("change", filterFlashcards);
 }
 
 async function updateFlashCardsGrid() {
   const flashCards = await getFlashCards();
   showFlashCards(flashCards);
+  filterFlashcards();
 }
 
 async function getFlashCards() {
@@ -59,16 +60,16 @@ function showFlashCards(listOfFlashCards) {
 function showFlashCard(flashCard) {
   console.log("---showFlashCard()---");
   const html = /*html*/ `
-  <article class="grid-item">
-            <img src="${flashCard.image}" />
-            <h3>${flashCard.question}</h3>
-            <p class="language">Language: ${flashCard.language}</p>
-            <p class="topic">Topic: ${flashCard.topic}</p>
-            <div class="btns">
-                <button class="btn-delete">Delete</button>
-                <button class="btn-update">Update</button>
-            </div>
-        </article>
+    <article class="grid-item" data-language="${flashCard.language}">
+      <img src="${flashCard.image}" />
+      <h3>${flashCard.question}</h3>
+      <p class="language">Language: ${flashCard.language}</p>
+      <p class="topic">Topic: ${flashCard.topic}</p>
+      <div class="btns">
+        <button class="btn-delete">Delete</button>
+        <button class="btn-update">Update</button>
+      </div>
+    </article>
   `;
   document
     .querySelector("#grid-container")
@@ -82,6 +83,7 @@ function showFlashCard(flashCard) {
     .querySelector("#grid-container article:last-child .btn-delete")
     .addEventListener("click", () => showDeleteDialog(flashCard));
 }
+
 
 function showReadDialog(flashCard) {
   console.log("---showReadDialog()---");
@@ -214,16 +216,17 @@ function rankDifficulty(flashCard) {
   }
 }
 
-async function filterFlashcards() {
-  console.log("---filterFlashcards---");
-  const filterKeyword = document.querySelector("#filter-input").value.toLowerCase();
-  const flashCards = await getFlashCards();
-  const filteredFlashCards = flashCards.filter(flashCard =>
-    flashCard.question.toLowerCase().includes(filterKeyword) ||
-    flashCard.answer.toLowerCase().includes(filterKeyword) ||
-    flashCard.language.toLowerCase().includes(filterKeyword) ||
-    flashCard.topic.toLowerCase().includes(filterKeyword) ||
-    flashCard.difficulty.toLowerCase().includes(filterKeyword)
-  );
-  showFlashCards(filteredFlashCards);
+function filterFlashcards() {
+  const selectedLanguage = document.getElementById("language").value;
+  const flashcards = document.querySelectorAll("#grid-container .grid-item");
+
+  flashcards.forEach(flashcard => {
+    const flashcardLanguage = flashcard.getAttribute("data-language");
+    
+    if (selectedLanguage === "" || selectedLanguage === flashcardLanguage) {
+      flashcard.style.display = "block";
+    } else {
+      flashcard.style.display = "none";
+    }
+  });
 }
