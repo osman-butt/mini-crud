@@ -305,19 +305,19 @@ function rankDifficulty(flashCard) {
   }
 }
 
-function filterFlashcards() {
+async function filterFlashcards() {
   const selectedLanguage = document.getElementById("language").value;
-  const flashcards = document.querySelectorAll("#grid-container .grid-item");
-
-  flashcards.forEach(flashcard => {
-    const flashcardLanguage = flashcard.getAttribute("data-language");
-
-    if (selectedLanguage === "" || selectedLanguage === flashcardLanguage) {
-      flashcard.style.display = "block";
-    } else {
-      flashcard.style.display = "none";
-    }
-  });
+  const flashcards = await getFlashCards();
+  let filteredFlashcards;
+  if (selectedLanguage !== "") {
+    filteredFlashcards = flashcards.filter(flashcard => {
+      return flashcard.language === selectedLanguage;
+    });
+  } else {
+    filteredFlashcards = flashcards;
+  }
+  showFlashCards(filteredFlashcards);
+  return filteredFlashcards;
 }
 
 async function searchFlashcards() {
@@ -325,7 +325,9 @@ async function searchFlashcards() {
   const searchKeyword = document
     .querySelector("#input-search")
     .value.toLowerCase();
-  const flashCards = await getFlashCards();
+  // const flashCards = await getFlashCards();
+  const flashCards = await filterFlashcards();
+  console.log(flashCards);
   const searchedFlashCards = flashCards.filter(
     flashCard =>
       flashCard.question.toLowerCase().includes(searchKeyword) ||
@@ -334,6 +336,7 @@ async function searchFlashcards() {
       flashCard.topic.toLowerCase().includes(searchKeyword) ||
       flashCard.difficulty.toLowerCase().includes(searchKeyword)
   );
+
   showFlashCards(searchedFlashCards);
 }
 
