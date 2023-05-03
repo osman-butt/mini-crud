@@ -32,8 +32,8 @@ async function initApp() {
     .querySelector("#sort-data")
     .addEventListener("change", sortFlashcards);
   document
-    .querySelector("#filter-btn")
-    .addEventListener("click", filterFlashcards);
+    .querySelector("#language")
+    .addEventListener("change", filterFlashcards);
   document
     .querySelector("#btn-search") // Find the right button, currently it has the same id as "CREATE NEW FLASHCARD"
     .addEventListener("click", searchFlashcards);
@@ -51,6 +51,7 @@ async function initApp() {
 async function updateFlashCardsGrid() {
   const flashCards = await getFlashCards();
   showFlashCards(flashCards);
+  filterFlashcards();
 }
 
 async function getFlashCards() {
@@ -84,16 +85,16 @@ function showFlashCards(listOfFlashCards) {
 function showFlashCard(flashCard) {
   console.log("---showFlashCard()---");
   const html = /*html*/ `
-  <article class="grid-item">
-            <img src="${flashCard.image}" />
-            <h3>${flashCard.question}</h3>
-            <p class="language">Language: ${flashCard.language}</p>
-            <p class="topic">Topic: ${flashCard.topic}</p>
-            <div class="btns">
-                <button class="btn-delete">Delete</button>
-                <button class="btn-update">Update</button>
-            </div>
-        </article>
+    <article class="grid-item" data-language="${flashCard.language}">
+      <img src="${flashCard.image}" />
+      <h3>${flashCard.question}</h3>
+      <p class="language">Language: ${flashCard.language}</p>
+      <p class="topic">Topic: ${flashCard.topic}</p>
+      <div class="btns">
+        <button class="btn-delete">Delete</button>
+        <button class="btn-update">Update</button>
+      </div>
+    </article>
   `;
   document
     .querySelector("#grid-container")
@@ -305,20 +306,18 @@ function rankDifficulty(flashCard) {
 }
 
 async function filterFlashcards() {
-  console.log("---filterFlashcards---");
-  const filterKeyword = document
-    .querySelector("#filter-input")
-    .value.toLowerCase();
-  const flashCards = await getFlashCards();
-  const filteredFlashCards = flashCards.filter(
-    flashCard =>
-      flashCard.question.toLowerCase().includes(filterKeyword) ||
-      flashCard.answer.toLowerCase().includes(filterKeyword) ||
-      flashCard.language.toLowerCase().includes(filterKeyword) ||
-      flashCard.topic.toLowerCase().includes(filterKeyword) ||
-      flashCard.difficulty.toLowerCase().includes(filterKeyword)
-  );
-  showFlashCards(filteredFlashCards);
+  const selectedLanguage = document.getElementById("language").value;
+  const flashcards = await getFlashCards();
+  let filteredFlashcards;
+  if (selectedLanguage !== "") {
+    filteredFlashcards = flashcards.filter(flashcard => {
+      return flashcard.language === selectedLanguage;
+    });
+  } else {
+    filteredFlashcards = flashcards;
+  }
+  showFlashCards(filteredFlashcards);
+  return filteredFlashcards;
 }
 
 async function searchFlashcards() {
@@ -326,14 +325,18 @@ async function searchFlashcards() {
   const searchKeyword = document
     .querySelector("#input-search")
     .value.toLowerCase();
-  const flashCards = await getFlashCards();
-  const searchedFlashCards = flashCards.filter(flashCard =>
-    flashCard.question.toLowerCase().includes(searchKeyword) ||
-    flashCard.answer.toLowerCase().includes(searchKeyword) ||
-    flashCard.language.toLowerCase().includes(searchKeyword) ||
-    flashCard.topic.toLowerCase().includes(searchKeyword) ||
-    flashCard.difficulty.toLowerCase().includes(searchKeyword)
+  // const flashCards = await getFlashCards();
+  const flashCards = await filterFlashcards();
+  console.log(flashCards);
+  const searchedFlashCards = flashCards.filter(
+    flashCard =>
+      flashCard.question.toLowerCase().includes(searchKeyword) ||
+      flashCard.answer.toLowerCase().includes(searchKeyword) ||
+      flashCard.language.toLowerCase().includes(searchKeyword) ||
+      flashCard.topic.toLowerCase().includes(searchKeyword) ||
+      flashCard.difficulty.toLowerCase().includes(searchKeyword)
   );
+
   showFlashCards(searchedFlashCards);
 }
 
