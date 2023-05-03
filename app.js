@@ -390,28 +390,31 @@ async function createFlashcard(flashCard) {
 }
 
 const imageMap = {
-  classlist:"images/classlist.webp",
-  css:"images/css.png",
-  flexbox:"images/flexbox.webp",
-  functions:"images/functions.png",
-  grid:"images/grid.webp",
-  localStorage:"images/localStorage.png",
-  promise:"images/promise.jpg",
-  websocket:"images/websocket.jpg",
-  async:"images/async-await.png",
+  classlist: "images/classlist.webp",
+  css: "images/css.png",
+  flexbox: "images/flexbox.webp",
+  functions: "images/functions.png",
+  grid: "images/grid.webp",
+  localStorage: "images/localStorage.png",
+  promise: "images/promise.jpg",
+  websocket: "images/websocket.jpg",
+  async: "images/async-await.png",
   fetch: "images/fetch.jpg",
   variables: "images/variables_image.jpg",
   functions: "images/functions_image.jpg",
 };
-document.querySelector("#create-topic").addEventListener("change", handleTopicChange);
+document
+  .querySelector("#create-topic")
+  .addEventListener("change", handleTopicChange);
 
 function handleTopicChange(event) {
-  
-  const selectedTopic = event.target.value;
+  const selectedTopic = event.target.value.toLowerCase();
   const imageFilename = imageMap[selectedTopic];
-  
+
   if (imageFilename) {
     document.getElementById("create-image").value = imageFilename;
+  } else if (selectedTopic === "async-await") {
+    document.getElementById("create-image").value = "images/async-await.png";
   } else {
     document.getElementById("create-image").value = "";
   }
