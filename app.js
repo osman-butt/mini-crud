@@ -199,7 +199,7 @@ async function updateFlashCard(newFlashCard, id) {
   } else {
     console.log(res.status, res.statusText);
     showFeedbackMsg(
-      `Unable to read from database - ${res.status}: ${res.statusText}`
+      `Unable to update database - ${res.status}: ${res.statusText}`
     );
   }
 
@@ -229,7 +229,7 @@ async function deleteFlashcard(id) {
   } else {
     console.log(res.status, res.statusText);
     showFeedbackMsg(
-      `Unable to read from database - ${res.status}: ${res.statusText}`
+      `Unable to delete from database - ${res.status}: ${res.statusText}`
     );
   }
   console.log(res);
@@ -407,7 +407,7 @@ async function createFlashcard(flashCard) {
   } else {
     console.log(response.status, response.statusText);
     showFeedbackMsg(
-      `Unable to read from database - ${response.status}: ${response.statusText}`
+      `Unable to create item in database - ${response.status}: ${response.statusText}`
     );
   }
   updateFlashCardsGrid();
