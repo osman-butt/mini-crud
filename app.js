@@ -237,7 +237,11 @@ async function searchFlashcards() {
   const searchKeyword = document.querySelector("#input-search").value.toLowerCase();
   const flashCards = await getFlashCards();
   const searchedFlashCards = flashCards.filter(flashCard =>
-    flashCard.question.toLowerCase().includes(searchKeyword)
+    flashCard.question.toLowerCase().includes(searchKeyword) ||
+    flashCard.answer.toLowerCase().includes(searchKeyword) ||
+    flashCard.language.toLowerCase().includes(searchKeyword) ||
+    flashCard.topic.toLowerCase().includes(searchKeyword) ||
+    flashCard.difficulty.toLowerCase().includes(searchKeyword)
   );
   showFlashCards(searchedFlashCards);
 }
