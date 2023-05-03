@@ -65,6 +65,14 @@ h1 {
   column-gap: 1em;
 }
 
+#filter-container {
+  padding-top: 1em;
+}
+
+#filter-sort-container {
+  text-align: center;
+}
+
 /* -------- CSS GRID -------- */
 #grid-container {
   display: grid;
@@ -115,6 +123,9 @@ h1 {
 @media (min-width: 1250px) {
   #data-interaction-container {
     grid-template-columns: 1fr 1fr 1fr;
+  }
+  #filter-sort-container {
+    text-align: right;
   }
 }
 @media (min-width: 1500px) {
