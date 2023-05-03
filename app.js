@@ -388,3 +388,31 @@ async function createFlashcard(flashCard) {
   }
   updateFlashCardsGrid();
 }
+
+const imageMap = {
+  classlist:"images/classlist.webp",
+  css:"images/css.png",
+  flexbox:"images/flexbox.webp",
+  functions:"images/functions.png",
+  grid:"images/grid.webp",
+  localStorage:"images/localStorage.png",
+  promise:"images/promise.jpg",
+  websocket:"images/websocket.jpg",
+  async:"images/async-await.png",
+  fetch: "images/fetch.jpg",
+  variables: "images/variables_image.jpg",
+  functions: "images/functions_image.jpg",
+};
+document.querySelector("#create-topic").addEventListener("change", handleTopicChange);
+
+function handleTopicChange(event) {
+  
+  const selectedTopic = event.target.value;
+  const imageFilename = imageMap[selectedTopic];
+  
+  if (imageFilename) {
+    document.getElementById("create-image").value = imageFilename;
+  } else {
+    document.getElementById("create-image").value = "";
+  }
+}
