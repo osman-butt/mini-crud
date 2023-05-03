@@ -272,6 +272,100 @@ dialog {
     0 0 8px rgba(102, 175, 233, 0.6);
 }
 
+/* -------- Responsiveness for Create/Update form -------- */
+
+/* Style the dialogs and their content */
+dialog {
+  box-sizing: border-box;
+  padding: 20px;
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Style the form labels */
+form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Style the form inputs */
+form input,
+form select {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Style the form buttons */
+form button {
+  padding: 10px;
+  margin-right: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Add a clearfix to the form buttons container */
+form div::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the cancel button */
+#create-flashcard-btn-cancel,
+#update-flashcard-btn-cancel {
+  background-color: grey;
+  color: #fff;
+}
+
+/* Style the save button */
+#create-flashcard-btn-save,
+#update-flashcard-btn-save {
+  background-color: #000000;
+  color: #fff;
+}
+
+@media screen and (max-width: 600px) {
+  form input,
+  form select,
+  form label {
+    font-size: 14px;
+  }
+
+  dialog {
+    padding: 10px;
+  }
+
+  form button {
+    padding: 8px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  form input,
+  form select,
+  form label {
+    font-size: 12px;
+  }
+
+  dialog {
+    padding: 5px;
+  }
+
+  form button {
+    padding: 6px;
+    font-size: 12px;
+  }
+}
+
 /* -------- Flip card -------- */
 
 #dialog-read {
