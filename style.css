@@ -321,7 +321,7 @@ form div::after {
 /* Style the cancel button */
 #create-flashcard-btn-cancel,
 #update-flashcard-btn-cancel {
-  background-color: grey;
+  background-color: rgb(0, 0, 0);
   color: #fff;
 }
 
