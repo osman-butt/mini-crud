@@ -57,11 +57,16 @@ async function updateFlashCardsGrid() {
 async function getFlashCards() {
   console.log("---getFlashCards()---");
   const response = await fetch(`${endpoint}/${query}.json`);
-  const data = await response.json();
-  const listOfFlashCards = prepareData(data);
   if (response.ok) {
     console.log("getFlashCards status " + response.status);
+  } else {
+    console.log(response.status, response.statusText);
+    showFeedbackMsg(
+      `Unable to read from database - ${response.status}: ${response.statusText}`
+    );
   }
+  const data = await response.json();
+  const listOfFlashCards = prepareData(data);
   return listOfFlashCards;
 }
 
@@ -191,6 +196,11 @@ async function updateFlashCard(newFlashCard, id) {
   if (res.ok) {
     console.log("id=" + id + ", was updated succesfully");
     showFeedbackMsg("put");
+  } else {
+    console.log(res.status, res.statusText);
+    showFeedbackMsg(
+      `Unable to read from database - ${res.status}: ${res.statusText}`
+    );
   }
 
   updateFlashCardsGrid();
@@ -212,9 +222,15 @@ async function deleteFlashcard(id) {
   console.log("---deleteFlashcard()---");
   const url = `${endpoint}/${query}/${id}.json`;
   const res = await fetch(url, { method: "DELETE" });
+  console.log(res.status, res.statusText);
   if (res.ok) {
     console.log("id=" + id + ", was deleted succesfully");
     showFeedbackMsg("delete");
+  } else {
+    console.log(res.status, res.statusText);
+    showFeedbackMsg(
+      `Unable to read from database - ${res.status}: ${res.statusText}`
+    );
   }
   console.log(res);
   updateFlashCardsGrid();
@@ -239,6 +255,9 @@ function showFeedbackMsg(httpMethod) {
   } else if (httpMethod == "put") {
     msg = "The flashcard was succesfully updated!";
     color = "rgb(117, 214, 117)";
+  } else {
+    msg = httpMethod;
+    color = "rgb(255, 68, 68)";
   }
   const prompt = document.querySelector("#feedback");
   prompt.textContent = msg;
@@ -385,6 +404,11 @@ async function createFlashcard(flashCard) {
   if (response.ok) {
     console.log("The flashcard was updated succesfully");
     showFeedbackMsg("post");
+  } else {
+    console.log(response.status, response.statusText);
+    showFeedbackMsg(
+      `Unable to read from database - ${response.status}: ${response.statusText}`
+    );
   }
   updateFlashCardsGrid();
 }
