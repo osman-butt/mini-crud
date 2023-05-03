@@ -263,14 +263,15 @@ dialog {
 
 /* -------- Responsiveness for Create/Update form -------- */
 
-#create-form > div {
+#create-form > div,
+#update-form > div {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 
-#create-form > div > button {
+#create-form > div > button,
+#update-form > div > button {
   width: 5em;
-
   justify-self: center;
 }
 
