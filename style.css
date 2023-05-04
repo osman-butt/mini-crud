@@ -11,6 +11,7 @@ body {
   background-color: grey;
 }
 
+footer,
 header {
   background-color: black;
   /* position: sticky; */
@@ -23,6 +24,14 @@ h1 {
   color: white;
   margin: 0;
   padding: 0.5em;
+}
+
+footer > h4 {
+  font-family: "Oswald", sans-serif;
+  text-align: center;
+  color: white;
+  margin: 0;
+  padding: 1em;
 }
 
 .hidden {
@@ -262,7 +271,6 @@ dialog {
 }
 
 /* -------- Responsiveness for Create/Update form -------- */
-
 #create-form > div,
 #update-form > div {
   display: grid;
@@ -370,8 +378,8 @@ form div::after {
 /* -------- Flip card -------- */
 
 #dialog-read {
-  width: auto;
-  height: auto;
+  width: 95%;
+  height: 60vh;
   border: none;
   margin: auto;
   border-radius: 1em;
@@ -456,24 +464,16 @@ h2.dialog-read-question {
 @media (min-width: 992px) {
   #dialog-read {
     width: 70vw;
-    height: 90vh;
   }
 }
 @media (min-width: 1200px) {
   #dialog-read {
     width: 60vw;
-    height: 80vh;
-  }
-}
-@media (min-width: 1250px) {
-  #dialog-read {
-    width: 50vw;
   }
 }
 @media (min-width: 1500px) {
   #dialog-read {
     width: 40vw;
-    height: 80vh;
   }
 }
 
@@ -531,9 +531,11 @@ pre.dialog-read-example {
   overflow-x: auto;
 }
 
-dialog-read-docs {
+.dialog-read-docs {
   text-align: left;
+  overflow-wrap: break-word;
 }
+
 .dialog-read-docs::before {
   content: "Documentation: \A";
   white-space: pre-wrap;
