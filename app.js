@@ -5,7 +5,7 @@ import {
   closeCreateDialog,
   closeUpdateDialog,
   closeDeleteDialog,
-} from "/js/toggleDialog.js";
+} from "/js/toggle-dialog.js";
 
 import {
   updateFlashCardsGrid,
