@@ -1,12 +1,12 @@
 "use strict";
 
-import { getFlashCards } from "/js/rest-services.js";
+import { getFlashCards } from "./js/rest-services.js";
 
 import {
   showReadDialog,
   showUpdateDialog,
   showDeleteDialog,
-} from "/js/toggle-dialog.js";
+} from "./js/toggle-dialog.js";
 
 async function updateFlashCardsGrid() {
   const flashCards = await getFlashCards();
