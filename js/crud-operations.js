@@ -5,9 +5,9 @@ import {
   updateFlashCard,
   deleteFlashcard,
   createFlashcard,
-} from "./js/rest-services.js";
+} from "/js/rest-services.js";
 
-import { closeCreateDialog, closeUpdateDialog } from "./js/toggle-dialog.js";
+import { closeCreateDialog, closeUpdateDialog } from "/js/toggle-dialog.js";
 
 function updateFlashcardClicked(event) {
   console.log("---updateFlashcardClicked()---");

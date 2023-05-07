@@ -1,7 +1,7 @@
 "use strict";
 
 // IMPORT MODULES
-import { updateFlashCardsGrid } from "./js/view.js";
+import { updateFlashCardsGrid } from "/js/view.js";
 
 const endpoint =
   "https://mini-crud-kea-default-rtdb.europe-west1.firebasedatabase.app";
