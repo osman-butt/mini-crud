@@ -6,7 +6,7 @@ import {
   showReadDialog,
   showUpdateDialog,
   showDeleteDialog,
-} from "/js/toggle-dialog.js";
+} from "./toggle-dialog.js";
 
 async function updateFlashCardsGrid() {
   const flashCards = await getFlashCards();
