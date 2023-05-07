@@ -1,11 +1,12 @@
 "use strict";
 // import modules
+import { showCreateDialog } from "./open-dialog.js";
+
 import {
-  showCreateDialog,
   closeCreateDialog,
   closeUpdateDialog,
   closeDeleteDialog,
-} from "./toggle-dialog.js";
+} from "./close-dialog.js";
 
 import {
   updateFlashCardsGrid,

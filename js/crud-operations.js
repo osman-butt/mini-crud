@@ -7,7 +7,7 @@ import {
   createFlashcard,
 } from "./rest-services.js";
 
-import { closeCreateDialog, closeUpdateDialog } from "./toggle-dialog.js";
+import { closeCreateDialog, closeUpdateDialog } from "./close-dialog.js";
 
 function updateFlashcardClicked(event) {
   console.log("---updateFlashcardClicked()---");

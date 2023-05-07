@@ -15,10 +15,6 @@ function showCreateDialog() {
   document.getElementById("dialog-create").showModal();
 }
 
-function closeCreateDialog() {
-  document.getElementById("dialog-create").close();
-}
-
 // Read Flashcard dialog
 function showReadDialog(flashCard) {
   console.log("---showReadDialog()---");
@@ -53,11 +49,6 @@ function showUpdateDialog(flashCard) {
   document.querySelector("#dialog-update").showModal();
 }
 
-function closeUpdateDialog() {
-  console.log("---closeUpdateDialog()---");
-  document.querySelector("#dialog-update").close();
-}
-
 function showDeleteDialog(flashCard) {
   console.log("---flashCard()---");
   document.querySelector(".dialog-delete-question span").textContent =
@@ -66,18 +57,4 @@ function showDeleteDialog(flashCard) {
   document.querySelector("#dialog-delete").showModal();
 }
 
-function closeDeleteDialog() {
-  console.log("closeDeleteDialog");
-  document.querySelector("#form-delete").removeAttribute("data-id");
-  document.querySelector("#dialog-delete").close();
-}
-
-export {
-  showReadDialog,
-  showUpdateDialog,
-  closeUpdateDialog,
-  showCreateDialog,
-  closeCreateDialog,
-  showDeleteDialog,
-  closeDeleteDialog,
-};
+export { showReadDialog, showUpdateDialog, showCreateDialog, showDeleteDialog };
