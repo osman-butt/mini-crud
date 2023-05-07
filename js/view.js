@@ -1,6 +1,6 @@
 "use strict";
 
-import { getFlashCards } from "/js/rest-services.js";
+import { getFlashCards } from "./rest-services.js";
 
 import {
   showReadDialog,

@@ -5,7 +5,7 @@ import {
   closeCreateDialog,
   closeUpdateDialog,
   closeDeleteDialog,
-} from "/js/toggle-dialog.js";
+} from "./toggle-dialog.js";
 
 import {
   updateFlashCardsGrid,
@@ -13,13 +13,13 @@ import {
   filterFlashcards,
   searchFlashcards,
   handleTopicChange,
-} from "/js/view.js";
+} from "./view.js";
 
 import {
   createFlashcardClicked,
   updateFlashcardClicked,
   deleteFlashcardClicked,
-} from "/js/crud-operations.js";
+} from "./crud-operations.js";
 
 window.addEventListener("load", initApp);
 
